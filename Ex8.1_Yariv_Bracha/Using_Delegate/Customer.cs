@@ -35,24 +35,27 @@ namespace Using_Delegate
         public int CompareTo(Customer other)
         {
             int returnCompareValue;
-            if (other == null)
+            if (this.Name != null)
             {
-                returnCompareValue = 1;
-            }
-            else if (this.Name == null)
-            {
-                if (other == null)
+                if ((other == null) || (other.Name == null))
                 {
                     returnCompareValue = 1;
                 }
                 else
                 {
-                    returnCompareValue = -1;
+                    returnCompareValue = this.Name.CompareTo(other.Name);
                 }
             }
-            else
+            else 
             {
-                returnCompareValue = this.Name.CompareTo(other.Name);
+                if ((other == null) || (other.Name == null))
+                {
+                    returnCompareValue = 0;
+                }
+                else
+                {
+                    returnCompareValue = -1;
+                }
             }
             return returnCompareValue;
         }
