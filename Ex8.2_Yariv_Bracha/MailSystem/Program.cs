@@ -12,9 +12,17 @@ namespace MailSystem
             MailManager mailManager = new MailManager();
             mailManager.MailArrived += program.PrintMailDetails;
 
+            mailManager.SimulateMailArrived("first mail title", "first mail body");
+
+            //checking if the mail title body is empty
+            mailManager.SimulateMailArrived("", "");
+
+            //checking if the mail title body is null
+            mailManager.SimulateMailArrived(null, null);
+
             Timer timer = new Timer((obj) =>
             {
-                mailManager.SimulateMailArrived();
+                mailManager.SimulateMailArrived("simulate mail title", "simulate mail body");
             }, null, 0, 1000);
 
             Console.ReadLine();

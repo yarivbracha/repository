@@ -14,16 +14,10 @@ namespace MailSystem
             }
         }
 
-        public void SimulateMailArrived()
+        public void SimulateMailArrived(string mailTitle, string mailBody)
         {
-            MailArrivedEventArgs firstMail = new MailArrivedEventArgs("This is first mail!", "first body mail");
-            MailArrivedEventArgs secondMail = new MailArrivedEventArgs("This is second mail!", "second body mail");
-            MailArrivedEventArgs thirdMail = new MailArrivedEventArgs("This is third mail!", "third body mail");
-            MailArrivedEventArgs fourthMail = new MailArrivedEventArgs("This is fourth mail!", "fourth body mail");
-            OnMailArrived(firstMail);
-            OnMailArrived(secondMail);
-            OnMailArrived(thirdMail);
-            OnMailArrived(fourthMail);
+            MailArrivedEventArgs mail = new MailArrivedEventArgs(mailTitle, mailBody);
+            OnMailArrived(mail);
         }
     }
 
