@@ -14,9 +14,9 @@ namespace MailSystem
             }
         }
 
-        public void SimulateMailArrived(string mailTitle, string mailBody)
+        public void SimulateMailArrived()
         {
-            MailArrivedEventArgs mail = new MailArrivedEventArgs(mailTitle, mailBody);
+            MailArrivedEventArgs mail = new MailArrivedEventArgs("simulate mail - title", "simulate mail - body");
             OnMailArrived(mail);
         }
     }
