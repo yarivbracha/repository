@@ -63,18 +63,12 @@ namespace Appendix
 
             public Rational Add(Rational firstRational, Rational secondRational)
             {
-                firstRational.numerator *= secondRational.Denumerator;
-                secondRational.numerator *= firstRational.Denumerator;
-                Rational tempRational = new Rational(firstRational.numerator + secondRational.Numerator, firstRational.denumerator * secondRational.denumerator);
-                return tempRational;
+                return firstRational + secondRational;
             }
 
             public Rational Mul(Rational firstRational, Rational secondRational)
             {
-                int tempNumerator = firstRational.Numerator * secondRational.Numerator;
-                int tempDenumerator = firstRational.Denumerator * secondRational.Denumerator;
-                Rational tempRational = new Rational(tempNumerator, tempDenumerator);
-                return tempRational;
+                return firstRational * secondRational;
             }
 
             public static Rational operator +(Rational firstRational, Rational secondRational)
@@ -181,7 +175,7 @@ namespace Appendix
             public override int GetHashCode()
             {
                 this.Reduce();
-                return (this.Numerator.GetHashCode() *2) ^ this.Denumerator.GetHashCode();
+                return (this.Numerator.GetHashCode() *18) ^ this.Denumerator.GetHashCode();
             }
         }
     }

@@ -6,7 +6,7 @@ namespace Personnel
 {
     class FileReaderHelper
     {
-        StreamReader reader;
+        private StreamReader reader;
 
         public void ReadFileLines(string path)
         {
