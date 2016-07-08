@@ -7,7 +7,6 @@ namespace FileFinder
 {
     class FileFinderHelper
     {
-
         public Dictionary<string, long> FindWordInFiles(string pathDirectory, string wordToFind)
         {
             Dictionary<string, long> dictionaryFilesAndLength = new Dictionary<string, long>();
