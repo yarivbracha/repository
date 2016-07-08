@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace FileFinder
 {
@@ -16,12 +17,15 @@ namespace FileFinder
                 {
                     foreach (var info in filesInfoDictionary)
                     {
-                        Console.WriteLine("The word [{0}] found in {1} and the file length is {2}", args[1], info.Key, info.Value);
+                        if (File.Exists(info.Key))
+                        {
+                            Console.WriteLine("The word [{0}] found in {1} and the file length is {2}", args[1], info.Key, info.Value);
+                        }
                     }
                 }
                 else
                 {
-                    Console.WriteLine("There is no file names with the word {{0}}}", args[1]);
+                    Console.WriteLine("There is no file names with the word [{0}]", args[1]);
                 }
             }
             else

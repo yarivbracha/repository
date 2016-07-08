@@ -8,15 +8,11 @@ namespace Personnel
     {
         StreamReader reader;
 
-        public FileReaderHelper(string path)
-        {
-            FileStream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
-            reader = new StreamReader(fileStream);
-        }
-
-        public void ReadFileLines()
+        public void ReadFileLines(string path)
         {
             string currentLine;
+            FileStream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
+            reader = new StreamReader(fileStream);
             try
             { 
                 List<string> fileLines = new List<string>();

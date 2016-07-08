@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 
@@ -6,39 +7,47 @@ namespace FileFinder
 {
     class FileFinderHelper
     {
-        string[] files;
-        StreamReader reader;
 
         public Dictionary<string, long> FindWordInFiles(string pathDirectory, string wordToFind)
         {
-            string[] files = Directory.GetFiles(pathDirectory);
-            Dictionary<string, long> dictionaryFilesInfo = new Dictionary<string, long>();
-            for(int i = 0; i < files.Length; i++)
+            Dictionary<string, long> dictionaryFilesAndLength = new Dictionary<string, long>();
+            List<string> listFiles = new List<string>();
+            listFiles = FindWordRecursivly(listFiles, pathDirectory, wordToFind);
+            foreach(string file in listFiles)
             {
-                if (File.Exists(files[i]))
+                if (File.Exists(file))
                 {
-                    try
-                    {
-                        FileStream fileStream = new FileStream(files[i], FileMode.Open, FileAccess.Read, FileShare.Read);
-                        reader = new StreamReader(fileStream);
-                        if (files[i].Contains(wordToFind))
-                        {
-                            FileInfo fileInfo = new FileInfo(files[i]);
-                            long fileLength = fileInfo.Length;
-                            dictionaryFilesInfo.Add(files[i], fileLength);
-                        }
-                    }
-                    finally
-                    {
-                        reader.Close();
-                    }
-                }
-                else
-                {
-                    continue;
+                    dictionaryFilesAndLength.Add(file, new FileInfo(file).Length);
                 }
             }
-            return dictionaryFilesInfo;
+            return dictionaryFilesAndLength;
+        }
+
+        private List<string> FindWordRecursivly(List<string> listFiles, string pathDirectory, string wordToFind)
+        {
+            try
+            {
+                foreach (string file in Directory.GetFiles(pathDirectory))
+                {
+                    if (file.Contains(wordToFind))
+                    {
+                        listFiles.Add(file);
+                    }
+                }
+                foreach (string directory in Directory.GetDirectories(pathDirectory))
+                {
+                    FindWordRecursivly(listFiles, directory, wordToFind);
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("File is not found, the search continues..");
+            }
+            catch(PathTooLongException)
+            {
+                Console.WriteLine("The path is too long, the search continues..");
+            }
+            return listFiles;
         }
     }
 }

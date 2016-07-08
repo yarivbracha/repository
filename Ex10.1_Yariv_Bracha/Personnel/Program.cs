@@ -8,8 +8,8 @@ namespace Personnel
         {
             if ((!String.IsNullOrEmpty(args[0])) && (args.Length != 0))
             {
-                FileReaderHelper helper = new FileReaderHelper(args[0]);
-                helper.ReadFileLines();
+                FileReaderHelper helper = new FileReaderHelper();
+                helper.ReadFileLines(args[0]);
             }
             else
             {
