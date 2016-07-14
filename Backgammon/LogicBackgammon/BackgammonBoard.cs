@@ -2,7 +2,7 @@
 
 namespace LogicBackgammon
 {
-    class BackgammonBoard
+    public class BackgammonBoard
     {
         private Triangle[] board;
         private OutBar outBar;

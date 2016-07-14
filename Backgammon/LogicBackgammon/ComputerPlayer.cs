@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 
 namespace LogicBackgammon
 {
     class ComputerPlayer : Player
     {
-        public ComputerPlayer(string name) : base(name)
-        {
-        }
+        public ComputerPlayer(string name, Color color) : base(name, color)
+        {}
 
         public override void DoMove()
         {

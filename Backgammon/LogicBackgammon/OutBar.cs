@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
+
 
 namespace LogicBackgammon
 {
-    class OutBar
+    public class OutBar
     {
         private int whiteSum;
         private int blackSum;
@@ -27,25 +24,29 @@ namespace LogicBackgammon
             get { return this.blackSum; }
         }
 
-        public void AddWhite()
+        public void Add(Color color)
         {
-            this.whiteSum++;
+            if (color == Color.White)
+            {
+                this.whiteSum++;
+            }
+            else
+            {
+                this.blackSum++;
+            }
         }
 
-        public void AddBlack()
+        public void Reduce(Color color)
         {
-            this.blackSum++;
+            if (color == Color.White)
+            {
+                this.whiteSum--;
+            }
+            else
+            {
+                this.blackSum--;
+            }
         }
 
-        public void ReduceWhite()
-        {
-            this.whiteSum--;
-        }
-
-        public void ReduceBlack()
-        {
-            this.blackSum--;
-
-        }
     }
 }

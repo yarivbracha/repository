@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace LogicBackgammon
 {
@@ -18,6 +14,19 @@ namespace LogicBackgammon
         private string name;
         private int sum;
         private GameStatus status;
+        private Color color;
+
+        public Player(string name, Color color)
+        {
+            this.color = color;
+            status = GameStatus.Start;
+            sum = 167;
+        }
+
+        public Color PlayerColor
+        {
+            get { return color; }
+        }
 
         public string Name
         {
@@ -45,12 +54,6 @@ namespace LogicBackgammon
             {
                 status = value;
             }
-        }
-
-        public Player(string name)
-        {
-            status = GameStatus.Start;
-            sum = 167;
         }
 
         public void UpdateSum(int steps)

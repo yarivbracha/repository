@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace LogicBackgammon
 {
-    class Triangle
+    public class Triangle
     {
         private int sum;
         private Color color;
@@ -47,7 +47,7 @@ namespace LogicBackgammon
             }
             else
             {
-                throw new Exception("There is checkers in the triangle");
+                throw new Exception("There is no checkers in the triangle!");
             }
         }
     }

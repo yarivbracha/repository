@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="BackgammonBoard.cs" />
     <Compile Include="ComputerPlayer.cs" />
-    <Compile Include="Cube.cs" />
+    <Compile Include="Cubes.cs" />
     <Compile Include="HumenPlayer.cs" />
     <Compile Include="OutBar.cs" />
     <Compile Include="Player.cs" />
