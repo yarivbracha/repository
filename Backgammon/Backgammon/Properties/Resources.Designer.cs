@@ -73,9 +73,9 @@ namespace Backgammon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap black {
+        internal static System.Drawing.Bitmap Cube1 {
             get {
-                object obj = ResourceManager.GetObject("black", resourceCulture);
+                object obj = ResourceManager.GetObject("Cube1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,49 @@ namespace Backgammon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap white {
+        internal static System.Drawing.Bitmap Cube2 {
             get {
-                object obj = ResourceManager.GetObject("white", resourceCulture);
+                object obj = ResourceManager.GetObject("Cube2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cube3 {
+            get {
+                object obj = ResourceManager.GetObject("Cube3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cube4 {
+            get {
+                object obj = ResourceManager.GetObject("Cube4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cube5 {
+            get {
+                object obj = ResourceManager.GetObject("Cube5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cube6 {
+            get {
+                object obj = ResourceManager.GetObject("Cube6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

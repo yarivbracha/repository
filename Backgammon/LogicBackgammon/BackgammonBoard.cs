@@ -26,14 +26,14 @@ namespace LogicBackgammon
 
         private void InitBoard()
         {
-            board[0] = new Triangle(2, Color.Black);
-            board[5] = new Triangle(5, Color.White);
-            board[7] = new Triangle(3, Color.White);
-            board[11] = new Triangle(5, Color.Black);
-            board[12] = new Triangle(5, Color.White);
-            board[16] = new Triangle(3, Color.Black);
-            board[18] = new Triangle(5, Color.Black);
-            board[23] = new Triangle(2, Color.White);
+            board[0] = new Triangle(2, Color.Red);
+            board[5] = new Triangle(5, Color.Blue);
+            board[7] = new Triangle(3, Color.Blue);
+            board[11] = new Triangle(5, Color.Red);
+            board[12] = new Triangle(5, Color.Blue);
+            board[16] = new Triangle(3, Color.Red);
+            board[18] = new Triangle(5, Color.Red);
+            board[23] = new Triangle(2, Color.Blue);
             board[6] = new Triangle();
             board[17] = new Triangle(); 
             InitTriangles(1, 5);

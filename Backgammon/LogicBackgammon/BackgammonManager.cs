@@ -21,7 +21,9 @@ namespace LogicBackgammon
 
         public BackgammonManager(GameMode gameMode, string firstPlayerName, string secondPlayerName)
         {
-             InitPlayers(gameMode, firstPlayerName, secondPlayerName);
+            InitPlayers(gameMode, firstPlayerName, secondPlayerName);
+            cubes = new Cubes();
+            board = new BackgammonBoard();
         }
 
         public Player FirstPlayer
@@ -53,18 +55,18 @@ namespace LogicBackgammon
         {
             if(gameMode == GameMode.Friend)
             {
-                firstPlayer = new HumenPlayer(firstPlayerName, Color.White);
-                secondPlayer = new HumenPlayer(secondPlayerName, Color.Black);
+                firstPlayer = new HumenPlayer(firstPlayerName, Color.Blue);
+                secondPlayer = new HumenPlayer(secondPlayerName, Color.Red);
             }
             else if(gameMode == GameMode.Computer)
             {
-                firstPlayer = new HumenPlayer(firstPlayerName, Color.White);
-                secondPlayer = new ComputerPlayer("Computer", Color.Black);
+                firstPlayer = new HumenPlayer(firstPlayerName, Color.Blue);
+                secondPlayer = new ComputerPlayer("Computer", Color.Red);
             }
             else
             {
-                firstPlayer = new ComputerPlayer("First Computer", Color.White);
-                secondPlayer = new ComputerPlayer("Second Computer", Color.Black);
+                firstPlayer = new ComputerPlayer("First Computer", Color.Blue);
+                secondPlayer = new ComputerPlayer("Second Computer", Color.Red);
             }
         }
 
@@ -100,7 +102,7 @@ namespace LogicBackgammon
         public void AddToOutBar(int oldCheckerPosition)
         {
             CurrentPlayer.Status = Player.GameStatus.Out;
-            if (CurrentPlayer.PlayerColor == Color.Black)
+            if (CurrentPlayer.PlayerColor == Color.Red)
             {
                 CurrentPlayer.UpdateSum(oldCheckerPosition);
             }

@@ -5,46 +5,46 @@ namespace LogicBackgammon
 {
     public class OutBar
     {
-        private int whiteSum;
-        private int blackSum;
+        private int blueSum;
+        private int redSum;
 
         public OutBar()
         {
-            this.whiteSum = 0;
-            this.blackSum = 0;
+            this.blueSum = 0;
+            this.redSum = 0;
         }
 
-        public int WhiteSum
+        public int BlueSum
         {
-            get { return this.whiteSum; }
+            get { return this.blueSum; }
         }
 
-        public int BlackSum
+        public int RedSum
         {
-            get { return this.blackSum; }
+            get { return this.redSum; }
         }
 
         public void Add(Color color)
         {
-            if (color == Color.White)
+            if (color == Color.Blue)
             {
-                this.whiteSum++;
+                this.blueSum++;
             }
             else
             {
-                this.blackSum++;
+                this.redSum++;
             }
         }
 
         public void Reduce(Color color)
         {
-            if (color == Color.White)
+            if (color == Color.Blue)
             {
-                this.whiteSum--;
+                this.blueSum--;
             }
             else
             {
-                this.blackSum--;
+                this.redSum--;
             }
         }
 

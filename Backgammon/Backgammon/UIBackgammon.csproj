@@ -53,6 +53,11 @@
     <Compile Include="BackgammonForm.Designer.cs">
       <DependentUpon>BackgammonForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,14 +74,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -100,10 +100,14 @@
     <None Include="Resources\Backgammon.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\white.png" />
+    <None Include="Resources\Cube5.jpg" />
+    <None Include="Resources\Cube4.jpg" />
+    <None Include="Resources\Cube3.jpg" />
+    <None Include="Resources\Cube2.jpg" />
+    <None Include="Resources\Cube1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\black.png" />
+    <None Include="Resources\Cube6.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
