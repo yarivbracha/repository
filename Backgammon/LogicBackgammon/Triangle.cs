@@ -44,6 +44,10 @@ namespace LogicBackgammon
             if (sum > 0)
             {
                 sum--;
+                if(sum == 0)
+                {
+                    CheckersColor = Color.Transparent;
+                }
             }
             else
             {
