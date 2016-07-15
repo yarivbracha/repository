@@ -360,6 +360,7 @@ namespace Backgammon
             this.pictureBoxSecondCube.Size = new System.Drawing.Size(56, 50);
             this.pictureBoxSecondCube.TabIndex = 36;
             this.pictureBoxSecondCube.TabStop = false;
+            this.pictureBoxSecondCube.Click += new System.EventHandler(this.pictureBoxSecondCube_Click);
             // 
             // pictureBoxFirstCube
             // 
@@ -368,6 +369,7 @@ namespace Backgammon
             this.pictureBoxFirstCube.Size = new System.Drawing.Size(56, 50);
             this.pictureBoxFirstCube.TabIndex = 35;
             this.pictureBoxFirstCube.TabStop = false;
+            this.pictureBoxFirstCube.Click += new System.EventHandler(this.pictureBoxFirstCube_Click);
             // 
             // pictureBox4
             // 

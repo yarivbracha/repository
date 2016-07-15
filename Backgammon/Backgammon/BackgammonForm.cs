@@ -11,25 +11,39 @@ namespace Backgammon
     public partial class BackgammonForm : Form
     {
         BackgammonManager manager;
-        bool isFirstClick;
+        bool isPanelClicked;
+        bool isClickedFirstPictureBox;
+        bool isClickedSecondPictureBox;
         Panel[] panels;
         Panel panelBar;
         public BackgammonForm(BackgammonManager.GameMode gameMode,string yourName, string friendName)
         {
             manager = new BackgammonManager(gameMode, yourName, friendName);
             InitializeComponent();
-            isFirstClick = false;
+            isPanelClicked = false;
+            isClickedFirstPictureBox = false;
+            isClickedSecondPictureBox = false;
             panels = Controls.OfType<Panel>().Where(panelName => panelName.Name.StartsWith("panel")).
             OrderBy(panelPos => int.Parse(panelPos.Name.Replace("panel", ""))).ToArray();
             panelBar = barPanel;
+            InitPanels();
             PaintBoard();
+        }
+
+        private void InitPanels()
+        {
+            for (int i = 0; i < 24; i++)
+            {
+                panels[i].Parent = pictureBox1;
+            }
+            panelBar.Parent = pictureBox1;
         }
 
         private void PaintBoard()
         {
             for(int i = 0; i < 24; i++)
             {
-                panels[i].Parent = pictureBox1;
+                
                 if (manager.GameBoard.Board[i].CheckersColor != Color.Transparent)
                 {
                     Bitmap bitmap = new Bitmap(panels[i].Size.Width, panels[i].Size.Height);
@@ -50,13 +64,12 @@ namespace Backgammon
                         graphics.SmoothingMode = SmoothingMode.AntiAlias;
                         graphics.DrawEllipse(pen, 0, yPos, 20, 20);
                         graphics.FillEllipse(brush, 0, yPos, 20, 20);
-                        yPos += 20;
+                        yPos += 25;
                     }
                     panels[i].BackgroundImage = bitmap;
                 }
                 Invalidate();
             }
-            panelBar.Parent = pictureBox1;
         }
 
         private void buttonPlay_Click(object sender, EventArgs e)
@@ -102,5 +115,14 @@ namespace Backgammon
 
         }
 
+        private void pictureBoxFirstCube_Click(object sender, EventArgs e)
+        {
+            isClickedFirstPictureBox = true;
+        }
+
+        private void pictureBoxSecondCube_Click(object sender, EventArgs e)
+        {
+            isClickedSecondPictureBox = true;
+        }
     }
 }
