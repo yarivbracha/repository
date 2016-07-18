@@ -12,9 +12,19 @@ namespace LogicBackgammon
         public HumenPlayer(string name, Color color) : base(name, color)
         { }
 
-        public override void DoMove()
+        public override bool DoMove(int panel, int steps)
         {
-            throw new NotImplementedException();
+            BackgammonBoard board = BackgammonBoard.Instance;
+            bool isMoved = false;
+            if (this.Status == GameStatus.Start)
+            {
+                if (board.Board[panel].CheckersColor != this.PlayerColor)
+                {
+                    isMoved = false;
+                }
+
+            }
+            return isMoved;
         }
     }
 }

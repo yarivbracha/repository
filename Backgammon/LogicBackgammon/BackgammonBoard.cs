@@ -7,11 +7,25 @@ namespace LogicBackgammon
         private Triangle[] board;
         private OutBar outBar;
 
-        public BackgammonBoard()
+        private static BackgammonBoard instance;
+
+        private BackgammonBoard()
         {
             outBar = new OutBar();
             board = new Triangle[24];
             InitBoard();
+        }
+
+        public static BackgammonBoard Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new BackgammonBoard();
+                }
+                return instance;
+            }
         }
 
         public Triangle[] Board

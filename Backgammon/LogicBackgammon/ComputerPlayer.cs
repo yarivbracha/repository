@@ -3,12 +3,12 @@ using System.Drawing;
 
 namespace LogicBackgammon
 {
-    class ComputerPlayer : Player
+    public  class ComputerPlayer : Player
     {
         public ComputerPlayer(string name, Color color) : base(name, color)
         {}
 
-        public override void DoMove()
+        public override bool DoMove(int panel, int steps, BackgammonBoard board)
         {
             throw new NotImplementedException();
         }

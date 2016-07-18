@@ -43,13 +43,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackgammonBoard.cs" />
+    <Compile Include="BlueRulls.cs" />
     <Compile Include="ComputerPlayer.cs" />
     <Compile Include="Cubes.cs" />
     <Compile Include="HumenPlayer.cs" />
+    <Compile Include="Rulls.cs" />
     <Compile Include="OutBar.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="BackgammonManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RedRulls.cs" />
     <Compile Include="Triangle.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

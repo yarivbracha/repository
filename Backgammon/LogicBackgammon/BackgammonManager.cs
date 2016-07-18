@@ -16,14 +16,14 @@ namespace LogicBackgammon
         private Player firstPlayer;
         private Player secondPlayer;
         private Player currentPlayer;
-        private BackgammonBoard board;
         private Cubes cubes;
+        private GameMode mode;
 
         public BackgammonManager(GameMode gameMode, string firstPlayerName, string secondPlayerName)
         {
+            this.mode = gameMode;
             InitPlayers(gameMode, firstPlayerName, secondPlayerName);
             cubes = new Cubes();
-            board = new BackgammonBoard();
         }
 
         public Player FirstPlayer
@@ -39,11 +39,6 @@ namespace LogicBackgammon
         public Player CurrentPlayer
         {
             get { return currentPlayer; }
-        }
-
-        public BackgammonBoard GameBoard
-        {
-            get { return board; }
         }
 
         public Cubes GameCubes
@@ -85,6 +80,15 @@ namespace LogicBackgammon
             {
                 currentPlayer = secondPlayer;
             }
+            if(typeof(ComputerPlayer) == CurrentPlayer.GetType())
+            {
+                PlayComputerMove();
+            }
+        }
+
+        public bool PlayComputerMove()
+        {
+            return currentPlayer.DoMove(cubes.FirstCube,cubes.SecondCube);
         }
 
         public void SwitchPlayer()
@@ -101,6 +105,7 @@ namespace LogicBackgammon
 
         public void AddToOutBar(int oldCheckerPosition)
         {
+            BackgammonBoard board = BackgammonBoard.Instance;
             CurrentPlayer.Status = Player.GameStatus.Out;
             if (CurrentPlayer.PlayerColor == Color.Red)
             {
@@ -118,6 +123,7 @@ namespace LogicBackgammon
         {
             currentPlayer.Status = Player.GameStatus.Start;
             CurrentPlayer.UpdateSum(newCheckerPosition);
+            //todo update board
         }
 
         public void EndMove()
@@ -125,7 +131,7 @@ namespace LogicBackgammon
             
         }
 
-        private bool CheckWinner()
+        public bool IsWinner()
         {
             if(CurrentPlayer.Sum < 1)
             {

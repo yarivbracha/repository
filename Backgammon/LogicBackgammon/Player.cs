@@ -15,12 +15,21 @@ namespace LogicBackgammon
         private int sum;
         private GameStatus status;
         private Color color;
+        private Rulls rulls;
 
         public Player(string name, Color color)
         {
             this.color = color;
             status = GameStatus.Start;
             sum = 167;
+            if(color == Color.Red)
+            {
+                rulls = new RedRulls();
+            }
+            else
+            {
+                rulls = new BlueRulls();
+            }
         }
 
         public Color PlayerColor
@@ -61,7 +70,11 @@ namespace LogicBackgammon
             sum -= steps;
         }
 
-        public abstract void DoMove();
+        public bool IsValidMoves(int cube)
+        {
+            return rulls.IsValidMoves(cube, BackgammonBoard.Instance, Status);
+        }
 
+        public abstract bool DoMove(int from, int steps);
     }
 }

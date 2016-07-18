@@ -61,24 +61,29 @@ namespace Backgammon
             this.labelSecondPlayer = new System.Windows.Forms.Label();
             this.labelSecondPlayerSum = new System.Windows.Forms.Label();
             this.buttonPlay = new System.Windows.Forms.Button();
-            this.pictureBoxSecondCube = new System.Windows.Forms.PictureBox();
-            this.pictureBoxFirstCube = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCube2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCube1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSecondCube)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFirstCube)).BeginInit();
+            this.pictureBoxCube3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCube4 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCube2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCube1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCube3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCube4)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxMassage
             // 
             this.textBoxMassage.Location = new System.Drawing.Point(1, 3);
             this.textBoxMassage.Name = "textBoxMassage";
+            this.textBoxMassage.ReadOnly = true;
             this.textBoxMassage.Size = new System.Drawing.Size(521, 20);
             this.textBoxMassage.TabIndex = 1;
             // 
@@ -130,7 +135,7 @@ namespace Backgammon
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.Location = new System.Drawing.Point(288, 40);
+            this.panel5.Location = new System.Drawing.Point(288, 41);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(28, 140);
             this.panel5.TabIndex = 7;
@@ -139,7 +144,7 @@ namespace Backgammon
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.Location = new System.Drawing.Point(206, 42);
+            this.panel6.Location = new System.Drawing.Point(206, 43);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(28, 140);
             this.panel6.TabIndex = 8;
@@ -353,23 +358,23 @@ namespace Backgammon
             this.buttonPlay.UseVisualStyleBackColor = true;
             this.buttonPlay.Click += new System.EventHandler(this.buttonPlay_Click);
             // 
-            // pictureBoxSecondCube
+            // pictureBoxCube2
             // 
-            this.pictureBoxSecondCube.Location = new System.Drawing.Point(622, 343);
-            this.pictureBoxSecondCube.Name = "pictureBoxSecondCube";
-            this.pictureBoxSecondCube.Size = new System.Drawing.Size(56, 50);
-            this.pictureBoxSecondCube.TabIndex = 36;
-            this.pictureBoxSecondCube.TabStop = false;
-            this.pictureBoxSecondCube.Click += new System.EventHandler(this.pictureBoxSecondCube_Click);
+            this.pictureBoxCube2.Location = new System.Drawing.Point(614, 327);
+            this.pictureBoxCube2.Name = "pictureBoxCube2";
+            this.pictureBoxCube2.Size = new System.Drawing.Size(56, 50);
+            this.pictureBoxCube2.TabIndex = 36;
+            this.pictureBoxCube2.TabStop = false;
+            this.pictureBoxCube2.Click += new System.EventHandler(this.Cube_Click);
             // 
-            // pictureBoxFirstCube
+            // pictureBoxCube1
             // 
-            this.pictureBoxFirstCube.Location = new System.Drawing.Point(541, 343);
-            this.pictureBoxFirstCube.Name = "pictureBoxFirstCube";
-            this.pictureBoxFirstCube.Size = new System.Drawing.Size(56, 50);
-            this.pictureBoxFirstCube.TabIndex = 35;
-            this.pictureBoxFirstCube.TabStop = false;
-            this.pictureBoxFirstCube.Click += new System.EventHandler(this.pictureBoxFirstCube_Click);
+            this.pictureBoxCube1.Location = new System.Drawing.Point(552, 327);
+            this.pictureBoxCube1.Name = "pictureBoxCube1";
+            this.pictureBoxCube1.Size = new System.Drawing.Size(56, 50);
+            this.pictureBoxCube1.TabIndex = 35;
+            this.pictureBoxCube1.TabStop = false;
+            this.pictureBoxCube1.Click += new System.EventHandler(this.Cube_Click);
             // 
             // pictureBox4
             // 
@@ -409,13 +414,33 @@ namespace Backgammon
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // pictureBoxCube3
+            // 
+            this.pictureBoxCube3.Location = new System.Drawing.Point(552, 383);
+            this.pictureBoxCube3.Name = "pictureBoxCube3";
+            this.pictureBoxCube3.Size = new System.Drawing.Size(56, 50);
+            this.pictureBoxCube3.TabIndex = 37;
+            this.pictureBoxCube3.TabStop = false;
+            this.pictureBoxCube3.Click += new System.EventHandler(this.Cube_Click);
+            // 
+            // pictureBoxCube4
+            // 
+            this.pictureBoxCube4.Location = new System.Drawing.Point(614, 383);
+            this.pictureBoxCube4.Name = "pictureBoxCube4";
+            this.pictureBoxCube4.Size = new System.Drawing.Size(56, 50);
+            this.pictureBoxCube4.TabIndex = 38;
+            this.pictureBoxCube4.TabStop = false;
+            this.pictureBoxCube4.Click += new System.EventHandler(this.Cube_Click);
+            // 
             // BackgammonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 461);
-            this.Controls.Add(this.pictureBoxSecondCube);
-            this.Controls.Add(this.pictureBoxFirstCube);
+            this.Controls.Add(this.pictureBoxCube4);
+            this.Controls.Add(this.pictureBoxCube3);
+            this.Controls.Add(this.pictureBoxCube2);
+            this.Controls.Add(this.pictureBoxCube1);
             this.Controls.Add(this.buttonPlay);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.labelSecondPlayerSum);
@@ -453,12 +478,14 @@ namespace Backgammon
             this.Controls.Add(this.pictureBox1);
             this.Name = "BackgammonForm";
             this.Text = "BackgammonForm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSecondCube)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFirstCube)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCube2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCube1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCube3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCube4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -501,7 +528,9 @@ namespace Backgammon
         private System.Windows.Forms.Label labelSecondPlayerSum;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button buttonPlay;
-        private System.Windows.Forms.PictureBox pictureBoxFirstCube;
-        private System.Windows.Forms.PictureBox pictureBoxSecondCube;
+        private System.Windows.Forms.PictureBox pictureBoxCube1;
+        private System.Windows.Forms.PictureBox pictureBoxCube2;
+        private System.Windows.Forms.PictureBox pictureBoxCube3;
+        private System.Windows.Forms.PictureBox pictureBoxCube4;
     }
 }
