@@ -12,17 +12,21 @@ namespace LogicBackgammon
         public HumenPlayer(string name, Color color) : base(name, color)
         { }
 
-        public override bool DoMove(int panel, int steps)
+        public override bool DoMove(int panel, int steps, out int sum)
         {
             BackgammonBoard board = BackgammonBoard.Instance;
             bool isMoved = false;
             if (this.Status == GameStatus.Start)
             {
-                if (board.Board[panel].CheckersColor != this.PlayerColor)
-                {
-                    isMoved = false;
-                }
-
+                isMoved = this.Move.StartMove(panel, steps, out sum);
+            }
+            else if(this.Status == GameStatus.Out)
+            {
+                isMoved = this.Move.OutMove(panel, steps, out sum);
+            }
+            else
+            {
+                isMoved = this.Move.FinishMove(panel, steps, out sum);
             }
             return isMoved;
         }

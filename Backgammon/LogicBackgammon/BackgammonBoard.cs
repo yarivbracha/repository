@@ -63,5 +63,6 @@ namespace LogicBackgammon
                 board[i] = new Triangle();
             }
         }
+
     }
 }

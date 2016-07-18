@@ -49,20 +49,23 @@ namespace Backgammon
                 SetCubes();
                 if (manager.GameCubes.IsDoubled)
                 {
-                    SetCubePictureBox(pictureBoxCube3, manager.GameCubes.FirstCube);
-                    SetCubePictureBox(pictureBoxCube4, manager.GameCubes.FirstCube);
                     pictureBoxCube3.Enabled = false;
                     pictureBoxCube4.Enabled = false;
                 }
-                SetCubePictureBox(pictureBoxCube1, manager.GameCubes.FirstCube);
-                SetCubePictureBox(pictureBoxCube2, manager.GameCubes.SecondCube);
                 pictureBoxCube1.Enabled = false;
                 pictureBoxCube2.Enabled = false;
 
-                manager.PlayComputerMove();
+               if(!manager.PlayComputerMove())
+                {
+                    MessageBox.Show($"There is no legal moves for {manager.CurrentPlayer.Name}");
+                }
                 PaintBoard();
                 Thread.Sleep(2000);
                 isWinner = manager.IsWinner();
+                if(isWinner)
+                {
+                    MessageBox.Show($"The game is over!\n The winner is {manager.CurrentPlayer.Name}!");
+                }
                 SwitchTurn();
             }
         }
@@ -159,7 +162,6 @@ namespace Backgammon
                 MessageBox.Show($"There is no available moves for {manager.CurrentPlayer.Name} The cubes was {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}");
                 SwitchTurn();
             }
-
         }
 
         private void setEnabledAndVisibilityPictureBox(PictureBox cube, bool isEnableAndVisibilty)
@@ -235,8 +237,6 @@ namespace Backgammon
             }
         }
 
-        
-
         private void Cube_Click(object sender, EventArgs e)
         {
             if (isPanelClicked)
@@ -249,7 +249,22 @@ namespace Backgammon
                     setEnabledAndVisibilityPictureBox(cube, false);
                     if (IsNoMoreMoves())
                     {
-                        SwitchTurn();
+                        if (manager.IsWinner())
+                        {
+                            MessageBox.Show($"The game is over!\nThe winner is {manager.CurrentPlayer.Name}!");
+                        }
+                        else
+                        {
+                            SwitchTurn();
+                            ComputerPlay();
+                        } 
+                    }
+                    else
+                    {
+                        if (manager.IsWinner())
+                        {
+                            MessageBox.Show($"The game is over!\nThe winner is {manager.CurrentPlayer.Name}!");
+                        }
                     }
                 }
                 else
