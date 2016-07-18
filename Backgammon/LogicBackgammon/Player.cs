@@ -88,6 +88,6 @@ namespace LogicBackgammon
             return rulls.IsValidMoves(cube, Status);
         }
 
-        public abstract bool DoMove(int from, int steps, out int sum);
+        public abstract bool DoMove(int from, int steps);
     }
 }
