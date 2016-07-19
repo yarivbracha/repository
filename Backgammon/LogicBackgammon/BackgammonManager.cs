@@ -65,7 +65,7 @@ namespace LogicBackgammon
             }
         }
 
-        public void StartGame()
+        public string StartGame()
         {
             cubes.RollCube();
             while(cubes.FirstCube == cubes.SecondCube)
@@ -84,6 +84,7 @@ namespace LogicBackgammon
             {
                 PlayComputerMove();
             }
+            return CurrentPlayer.Name;
         }
 
         public bool PlayComputerMove()
@@ -103,28 +104,28 @@ namespace LogicBackgammon
             }
         }
 
-        public void AddToOutBar(int oldCheckerPosition)
-        {
-            BackgammonBoard board = BackgammonBoard.Instance;
-            CurrentPlayer.Status = Player.GameStatus.Out;
-            if (CurrentPlayer.PlayerColor == Color.Red)
-            {
-                CurrentPlayer.UpdateSum(oldCheckerPosition);
-            }
-            else
-            {
-                CurrentPlayer.UpdateSum(24 - oldCheckerPosition);
-            }
-            board.Out.Add(currentPlayer.PlayerColor);
-            board.Board[oldCheckerPosition].RemoveChecker(); 
-        }
+        //public void AddToOutBar(int oldCheckerPosition)
+        //{
+        //    BackgammonBoard board = BackgammonBoard.Instance;
+        //    CurrentPlayer.Status = Player.GameStatus.Out;
+        //    if (CurrentPlayer.PlayerColor == Color.Red)
+        //    {
+        //        CurrentPlayer.UpdateSum(oldCheckerPosition);
+        //    }
+        //    else
+        //    {
+        //        CurrentPlayer.UpdateSum(24 - oldCheckerPosition);
+        //    }
+        //    board.Out.Add(currentPlayer.PlayerColor);
+        //    board.Board[oldCheckerPosition].RemoveChecker(); 
+        //}
 
-        public void RemoveFromOutBar(int newCheckerPosition)
-        {
-            currentPlayer.Status = Player.GameStatus.Start;
-            CurrentPlayer.UpdateSum(newCheckerPosition);
-            //todo update board
-        }
+        //public void RemoveFromOutBar(int newCheckerPosition)
+        //{
+        //    currentPlayer.Status = Player.GameStatus.Start;
+        //    CurrentPlayer.UpdateSum(newCheckerPosition);
+        //    //todo update board
+        //}
 
         public void EndMove()
         {

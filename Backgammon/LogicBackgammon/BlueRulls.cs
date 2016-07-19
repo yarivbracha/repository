@@ -13,12 +13,40 @@ namespace LogicBackgammon
 
         internal override bool IsValidMoveForFinish(int cube)
         {
-            throw new NotImplementedException();
+            bool isValid = false;
+            for (int i = 5; i > 0; i--)
+            {
+                if ((i - cube) < 0)
+                {
+                    isValid = true;
+                }
+                else if (board.Board[i].CheckersColor == Color.Blue)
+                {
+                    if ((board.Board[i + cube].CheckersColor == Color.Blue) || (board.Board[i + cube].CheckersColor == Color.Transparent))
+                    {
+                        isValid = true;
+                    }
+                    else if (board.Board[i + cube].Checkers == 1)
+                    {
+                        isValid = true;
+                    }
+                }
+            }
+            return isValid;
         }
 
         internal override bool IsValidMoveForOut(int cube)
         {
-            throw new NotImplementedException();
+            bool isValid = false;
+            if((board.Board[cube - 1].CheckersColor == Color.Blue) || (board.Board[cube - 1].CheckersColor == Color.Transparent))
+            {
+                isValid = true;
+            }
+            else if (board.Board[cube - 1].Checkers == 1)
+            {
+                isValid = true;
+            }
+            return isValid;
         }
 
         internal override bool IsValidMoveForStart(int cube)

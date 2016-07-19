@@ -25,6 +25,8 @@ namespace Backgammon
             manager = new BackgammonManager(gameMode, yourName, friendName);
             board = BackgammonBoard.Instance;
             InitializeComponent();
+            labelFirstPlayer.Text = yourName;
+            labelSecondPlayer.Text = friendName;
             panels = Controls.OfType<Panel>().Where(panelName => panelName.Name.StartsWith("panel")).
             OrderBy(panelPos => int.Parse(panelPos.Name.Replace("panel", ""))).ToArray();
             InitCubesPictures();
@@ -33,8 +35,10 @@ namespace Backgammon
             panelBar = barPanel;
             InitPanels();
             PaintBoard();
-            manager.StartGame();
+            string nameStart = manager.StartGame();
+            SetCubes();
             setPanelsAndCubesEnabled(false);
+            textBoxMassage.Text = $" {nameStart} is start the game!";
             isWinner = false;
             ComputerPlay();
             buttonPlay.Enabled = true;
@@ -57,7 +61,7 @@ namespace Backgammon
 
                if(!manager.PlayComputerMove())
                 {
-                    MessageBox.Show($"There is no legal moves for {manager.CurrentPlayer.Name}");
+                    textBoxMassage.Text = $"There is no legal moves for {manager.CurrentPlayer.Name}";
                 }
                 PaintBoard();
                 Thread.Sleep(2000);
@@ -92,11 +96,10 @@ namespace Backgammon
         {
             for(int i = 0; i < 24; i++)
             {
-                
                 if (board.Board[i].CheckersColor != Color.Transparent)
                 {
-                    Bitmap bitmap = new Bitmap(panels[i].Size.Width, panels[i].Size.Height);
-                    Graphics graphics = Graphics.FromImage(bitmap);
+                    Bitmap bitmapBoard = new Bitmap(panels[i].Size.Width, panels[i].Size.Height);
+                    Graphics graphics = Graphics.FromImage(bitmapBoard);
                     Pen pen = new Pen(Color.Black);
                     SolidBrush brush;
                     if (board.Board[i].CheckersColor == Color.Red)
@@ -111,17 +114,49 @@ namespace Backgammon
                     for (int j = 0; j < board.Board[i].Checkers; j++)
                     {
                         graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                        graphics.DrawEllipse(pen, 5, yPos, 20, 20);
-                        graphics.FillEllipse(brush, 5, yPos, 20, 20);
-                        yPos += 25;
+                        graphics.DrawEllipse(pen, 5, yPos, 15, 15);
+                        graphics.FillEllipse(brush, 5, yPos, 15, 15);
+                        yPos += 20;
                     }
-                    panels[i].BackgroundImage = bitmap;
+                    panels[i].BackgroundImage = bitmapBoard;
                 }
-                Invalidate();
+                else
+                {
+                    panels[i].BackgroundImage = null;
+                }
+            }
+            if ((board.Out.BlueSum == 0) && (board.Out.RedSum == 0))
+            {
+                panelBar.BackgroundImage = null;
+            }
+            else
+            {
+                Bitmap bitmapBoard = new Bitmap(panelBar.Size.Width, panelBar.Size.Height);
+                Graphics graphics = Graphics.FromImage(bitmapBoard);
+                Pen pen = new Pen(Color.Black);
+                int yPos = 0;
+                for (int i = 0; i < board.Out.BlueSum; i++)
+                {
+                    SolidBrush brush = new SolidBrush(Color.Blue);
+                    graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    graphics.DrawEllipse(pen, 5, yPos, 15, 15);
+                    graphics.FillEllipse(brush, 5, yPos, 15, 15);
+                    yPos += 20;
+                }
+                yPos = 0;
+                for (int i = 0; i < board.Out.RedSum; i++)
+                {
+                    SolidBrush brush = new SolidBrush(Color.Red);
+                    graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    graphics.DrawEllipse(pen, 5, yPos, 15, 15);
+                    graphics.FillEllipse(brush, 5, yPos, 15, 15);
+                    yPos += 20;
+                }
+                panelBar.BackgroundImage = bitmapBoard;
             }
         }
 
-        private void  SetCubes()
+        private void SetCubes()
         {
             if (manager.GameCubes.IsDoubled == true)
             {
@@ -149,7 +184,7 @@ namespace Backgammon
             }
             if(manager.GameCubes.IsDoubled && pictureBoxCube1.Visible == false)
             {
-                MessageBox.Show("There is no available moves for {0}", manager.CurrentPlayer.Name);
+                textBoxMassage.Text =  $"There is no available moves for {manager.CurrentPlayer.Name}";
                 SwitchTurn();
                 return;
             }
@@ -159,7 +194,7 @@ namespace Backgammon
             }
             if((pictureBoxCube2.Visible == false) && (pictureBoxCube1.Visible == false))
             {
-                MessageBox.Show($"There is no available moves for {manager.CurrentPlayer.Name} The cubes was {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}");
+                textBoxMassage.Text = $"There is no available moves for {manager.CurrentPlayer.Name} The cubes was {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}";
                 SwitchTurn();
             }
         }
@@ -217,7 +252,7 @@ namespace Backgammon
             }
             Panel currentPanel = (Panel)sender;
             string panelIndexOrBar = currentPanel.Name.Replace("panel", "");
-            if (panelIndexOrBar.Equals("bar"))
+            if (currentPanel.Name.Equals("barPanel"))
             {
                 if (manager.CurrentPlayer.Status == Player.GameStatus.Out)
                 {
@@ -243,8 +278,10 @@ namespace Backgammon
             {
                 PictureBox cube = (PictureBox)sender;
                 int cubeSum = GetCubeSum(cube);
+                panels[panelIndex].BackColor = Color.Transparent;
                 if (manager.CurrentPlayer.DoMove(panelIndex, cubeSum))
                 {
+                    PaintBoard();
                     isPanelClicked = false;
                     setEnabledAndVisibilityPictureBox(cube, false);
                     if (IsNoMoreMoves())
@@ -255,7 +292,10 @@ namespace Backgammon
                         }
                         else
                         {
+                            UpdateSumLabels();
                             SwitchTurn();
+                            manager.CurrentPlayer.Status =  manager.CurrentPlayer.Rull.CheckStatus();
+                            textBoxMassage.Text = $"{manager.CurrentPlayer.Name} turn";
                             ComputerPlay();
                         } 
                     }
@@ -269,12 +309,24 @@ namespace Backgammon
                 }
                 else
                 {
-                    MessageBox.Show($"The move from {panelIndex} with {cubeSum} steps is illegal, please try again");
+                    textBoxMassage.Text = $"The move from {panelIndex} with {cubeSum} steps is illegal, please try again";
                 }
             }
             else
             {
-                MessageBox.Show("Please choose legal checker and later choose cube");
+                textBoxMassage.Text = "Please choose legal checker and later choose cube";
+            }
+        }
+
+        private void UpdateSumLabels()
+        {
+            if (manager.CurrentPlayer.PlayerColor == Color.Red)
+            {
+                labelRedPlayer.Text = manager.CurrentPlayer.Sum.ToString();
+            }
+            else
+            {
+                labelBluePlayer.Text = manager.CurrentPlayer.Sum.ToString();
             }
         }
 
@@ -295,7 +347,7 @@ namespace Backgammon
 
         private bool IsNoMoreMoves()
         {
-            bool isMoreTurns = true;
+            bool isMoreTurns = false;
             if (pictureBoxCube1.Visible == true)
             {
                 if (!manager.CurrentPlayer.IsValidMoves(manager.GameCubes.FirstCube))
@@ -313,7 +365,7 @@ namespace Backgammon
             if ((pictureBoxCube1.Visible == false) && (pictureBoxCube2.Visible == false)
                 && (pictureBoxCube3.Visible == false) && (pictureBoxCube4.Visible == false))
             {
-                isMoreTurns = false;
+                isMoreTurns = true;
             }
             return isMoreTurns;
         }

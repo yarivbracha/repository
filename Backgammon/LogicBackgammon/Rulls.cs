@@ -26,7 +26,7 @@ namespace LogicBackgammon
             return isValid;
         }
 
-        public  Player.GameStatus CheckStatus()
+        public Player.GameStatus CheckStatus()
         {
             Player.GameStatus status;
             if (IsOutStatus())

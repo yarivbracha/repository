@@ -45,7 +45,7 @@ namespace LogicBackgammon
                 }
                 else
                 {
-                    if (IsInBiggerTriangle(from))
+                    if (IsInBiggerTriangle(from, steps))
                     {
                         sum = 0;
                         isMoved = false;
@@ -66,15 +66,27 @@ namespace LogicBackgammon
             return isMoved;
         }
 
-        public bool IsInBiggerTriangle(int triangle)
+        public bool IsInBiggerTriangle(int triangle, int steps)
         {
             bool isInBiggerTriangle = false;
             for (int i = 5; i > triangle; i--)
             {
                 if (board.Board[i].CheckersColor == Color.Blue)
                 {
-                    isInBiggerTriangle = true;
-                    break;
+                    if ((i - steps) > 0)
+                    {
+                        if (((board.Board[i - steps].CheckersColor == Color.Blue) || (board.Board[i - steps].CheckersColor == Color.Transparent))
+                            || ((board.Board[i - steps].CheckersColor == Color.Red) && (board.Board[i - steps].Checkers == 1)))
+                        {
+                            isInBiggerTriangle = true;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        isInBiggerTriangle = true;
+                        break;
+                    }
                 }
             }
             return isInBiggerTriangle;
@@ -130,7 +142,7 @@ namespace LogicBackgammon
                     board.Board[from - steps].CheckersColor = Color.Blue;
                     board.Board[from - steps].AddChecker();
                 }
-                else if (board.Board[from + steps].Checkers == 1)
+                else if (board.Board[from - steps].Checkers == 1)
                 {
                     isMoved = true;
                     sum = steps;

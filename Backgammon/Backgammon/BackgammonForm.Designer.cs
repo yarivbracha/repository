@@ -57,9 +57,9 @@ namespace Backgammon
             this.panel23 = new System.Windows.Forms.Panel();
             this.barPanel = new System.Windows.Forms.Panel();
             this.labelFirstPlayer = new System.Windows.Forms.Label();
-            this.labelSumFirstPlayer = new System.Windows.Forms.Label();
+            this.labelBluePlayer = new System.Windows.Forms.Label();
             this.labelSecondPlayer = new System.Windows.Forms.Label();
-            this.labelSecondPlayerSum = new System.Windows.Forms.Label();
+            this.labelRedPlayer = new System.Windows.Forms.Label();
             this.buttonPlay = new System.Windows.Forms.Button();
             this.pictureBoxCube2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxCube1 = new System.Windows.Forms.PictureBox();
@@ -321,14 +321,14 @@ namespace Backgammon
             this.labelFirstPlayer.TabIndex = 28;
             this.labelFirstPlayer.Text = "First";
             // 
-            // labelSumFirstPlayer
+            // labelBluePlayer
             // 
-            this.labelSumFirstPlayer.AutoSize = true;
-            this.labelSumFirstPlayer.Location = new System.Drawing.Point(643, 40);
-            this.labelSumFirstPlayer.Name = "labelSumFirstPlayer";
-            this.labelSumFirstPlayer.Size = new System.Drawing.Size(25, 13);
-            this.labelSumFirstPlayer.TabIndex = 29;
-            this.labelSumFirstPlayer.Text = "167";
+            this.labelBluePlayer.AutoSize = true;
+            this.labelBluePlayer.Location = new System.Drawing.Point(643, 40);
+            this.labelBluePlayer.Name = "labelBluePlayer";
+            this.labelBluePlayer.Size = new System.Drawing.Size(25, 13);
+            this.labelBluePlayer.TabIndex = 29;
+            this.labelBluePlayer.Text = "167";
             // 
             // labelSecondPlayer
             // 
@@ -339,14 +339,14 @@ namespace Backgammon
             this.labelSecondPlayer.TabIndex = 31;
             this.labelSecondPlayer.Text = "Second";
             // 
-            // labelSecondPlayerSum
+            // labelRedPlayer
             // 
-            this.labelSecondPlayerSum.AutoSize = true;
-            this.labelSecondPlayerSum.Location = new System.Drawing.Point(643, 160);
-            this.labelSecondPlayerSum.Name = "labelSecondPlayerSum";
-            this.labelSecondPlayerSum.Size = new System.Drawing.Size(25, 13);
-            this.labelSecondPlayerSum.TabIndex = 32;
-            this.labelSecondPlayerSum.Text = "167";
+            this.labelRedPlayer.AutoSize = true;
+            this.labelRedPlayer.Location = new System.Drawing.Point(643, 160);
+            this.labelRedPlayer.Name = "labelRedPlayer";
+            this.labelRedPlayer.Size = new System.Drawing.Size(25, 13);
+            this.labelRedPlayer.TabIndex = 32;
+            this.labelRedPlayer.Text = "167";
             // 
             // buttonPlay
             // 
@@ -443,10 +443,10 @@ namespace Backgammon
             this.Controls.Add(this.pictureBoxCube1);
             this.Controls.Add(this.buttonPlay);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.labelSecondPlayerSum);
+            this.Controls.Add(this.labelRedPlayer);
             this.Controls.Add(this.labelSecondPlayer);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.labelSumFirstPlayer);
+            this.Controls.Add(this.labelBluePlayer);
             this.Controls.Add(this.labelFirstPlayer);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.barPanel);
@@ -522,10 +522,10 @@ namespace Backgammon
         private System.Windows.Forms.Panel barPanel;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label labelFirstPlayer;
-        private System.Windows.Forms.Label labelSumFirstPlayer;
+        private System.Windows.Forms.Label labelBluePlayer;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label labelSecondPlayer;
-        private System.Windows.Forms.Label labelSecondPlayerSum;
+        private System.Windows.Forms.Label labelRedPlayer;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button buttonPlay;
         private System.Windows.Forms.PictureBox pictureBoxCube1;

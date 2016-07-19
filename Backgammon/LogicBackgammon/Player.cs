@@ -22,6 +22,7 @@ namespace LogicBackgammon
             this.color = color;
             status = GameStatus.Start;
             sum = 167;
+            this.name = name;
             if(color == Color.Red)
             {
                 rulls = new RedRulls();
