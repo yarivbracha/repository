@@ -16,7 +16,6 @@ namespace LogicBackgammon
         private GameStatus status;
         private Color color;
         private Rulls rulls;
-        private IMove move;
 
         public Player(string name, Color color)
         {
@@ -26,12 +25,10 @@ namespace LogicBackgammon
             if(color == Color.Red)
             {
                 rulls = new RedRulls();
-                move = new RedMove();
             }
             else
             {
                 rulls = new BlueRulls();
-                move = new BlueMove();
             }
         }
 
@@ -59,11 +56,6 @@ namespace LogicBackgammon
         public Rulls Rull
         {
             get { return rulls; }
-        }
-
-        public IMove Move
-        {
-            get { return move; }
         }
 
         public GameStatus Status

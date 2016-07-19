@@ -2,11 +2,11 @@
 
 namespace LogicBackgammon
 {
-    class BlueMove : IMove
+    class HumenBlueMove : IHumenMove
     {
         BackgammonBoard board;
 
-        public bool FinishMove(int from, int steps, out int sum)
+        public  bool FinishMove(int from, int steps, out int sum)
         {
             bool isMoved;
             if ((from <= 5) && (from >= 0))
@@ -45,7 +45,7 @@ namespace LogicBackgammon
                 }
                 else
                 {
-                    if (IsBlueInBiggerTriangle(from))
+                    if (IsInBiggerTriangle(from))
                     {
                         sum = 0;
                         isMoved = false;
@@ -66,7 +66,7 @@ namespace LogicBackgammon
             return isMoved;
         }
 
-        private bool IsBlueInBiggerTriangle(int triangle)
+        public bool IsInBiggerTriangle(int triangle)
         {
             bool isInBiggerTriangle = false;
             for (int i = 5; i > triangle; i--)

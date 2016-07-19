@@ -2,11 +2,11 @@
 
 namespace LogicBackgammon
 {
-    class RedMove : IMove
+    class HumenRedMove : IHumenMove
     {
         BackgammonBoard board;
 
-        public bool FinishMove(int from, int steps, out int sum)
+        public  bool FinishMove(int from, int steps, out int sum)
         {
             bool isMoved;
             if((from <= 23) && (from >= 18))
@@ -45,7 +45,7 @@ namespace LogicBackgammon
                 }
                 else
                 {
-                    if(IsRedInBiggerTriangle(from))
+                    if(IsInBiggerTriangle(from,steps))
                     {
                         sum = 0;
                         isMoved = false;
@@ -66,21 +66,33 @@ namespace LogicBackgammon
             return isMoved;
         }
 
-        private bool IsRedInBiggerTriangle(int triangle)
+        public bool IsInBiggerTriangle(int triangle, int steps)
         {
             bool isInBiggerTriangle = false;
             for(int i = 18; i < triangle; i++)
             {
                 if(board.Board[i].CheckersColor == Color.Red)
                 {
-                    isInBiggerTriangle = true;
-                    break;
+                    if ((i + steps) < 24)
+                    {
+                        if (((board.Board[i + steps].CheckersColor == Color.Red) || (board.Board[i + steps].CheckersColor == Color.Transparent))
+                            || ((board.Board[i + steps].CheckersColor == Color.Blue) && (board.Board[i + steps].Checkers == 1)))
+                        {
+                            isInBiggerTriangle = true;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        isInBiggerTriangle = true;
+                        break;
+                    }
                 }
             }
             return isInBiggerTriangle;
         }
 
-        public bool OutMove(int from, int steps, out int sum)
+        public  bool OutMove(int from, int steps, out int sum)
         {
             bool isMoved;
             if (from == -1)

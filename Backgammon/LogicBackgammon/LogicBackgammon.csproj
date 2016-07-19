@@ -43,13 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackgammonBoard.cs" />
-    <Compile Include="BlueMove.cs" />
+    <Compile Include="ComputerBlueMove.cs" />
+    <Compile Include="ComputerRedMove.cs" />
+    <Compile Include="HumenBlueMove.cs" />
     <Compile Include="BlueRulls.cs" />
     <Compile Include="ComputerPlayer.cs" />
     <Compile Include="Cubes.cs" />
     <Compile Include="HumenPlayer.cs" />
+    <Compile Include="IBlueMove.cs" />
     <Compile Include="IMove.cs" />
-    <Compile Include="RedMove.cs" />
+    <Compile Include="IHumenMove.cs" />
+    <Compile Include="HumenRedMove.cs" />
     <Compile Include="Rulls.cs" />
     <Compile Include="OutBar.cs" />
     <Compile Include="Player.cs" />

@@ -9,8 +9,19 @@ namespace LogicBackgammon
 {
     class HumenPlayer : Player
     {
+        IHumenMove move;
+
         public HumenPlayer(string name, Color color) : base(name, color)
-        { }
+        {
+            if(color == Color.Red)
+            {
+                move = new HumenRedMove();
+            }
+            else
+            {
+                move = new HumenBlueMove();
+            }
+        }
 
         public override bool DoMove(int panel, int steps)
         {
@@ -19,16 +30,17 @@ namespace LogicBackgammon
             bool isMoved = false;
             if (this.Status == GameStatus.Start)
             {
-                isMoved = this.Move.StartMove(panel, steps, out sum);
+                isMoved = move.StartMove(panel, steps, out sum);
             }
             else if(this.Status == GameStatus.Out)
             {
-                isMoved = this.Move.OutMove(panel, steps, out sum);
+                isMoved = move.OutMove(panel, steps, out sum);
             }
             else
             {
-                isMoved = this.Move.FinishMove(panel, steps, out sum);
+                isMoved = move.FinishMove(panel, steps, out sum);
             }
+            Status = Rull.CheckStatus();
             UpdateSum(sum);
             return isMoved;
         }
