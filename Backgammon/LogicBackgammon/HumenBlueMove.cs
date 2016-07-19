@@ -110,6 +110,7 @@ namespace LogicBackgammon
                     isMoved = true;
                     sum = steps;
                     board.Out.Reduce(Color.Blue);
+                    board.Board[24 - steps].RemoveChecker();
                     board.Board[24 - steps].CheckersColor = Color.Blue;
                     board.Board[24 - steps].AddChecker();
                     board.Out.Add(Color.Red, 24 - steps);
@@ -147,7 +148,7 @@ namespace LogicBackgammon
                     isMoved = true;
                     sum = steps;
                     board.Board[from].RemoveChecker();
-                    board.Out.Add(Color.Red, 24 - (from - steps));
+                    board.Out.Add(Color.Red, (from - steps) + 1);
                     board.Board[from - steps].RemoveChecker();
                     board.Board[from - steps].CheckersColor = Color.Blue;
                     board.Board[from - steps].AddChecker();

@@ -35,10 +35,9 @@ namespace Backgammon
             panelBar = barPanel;
             InitPanels();
             PaintBoard();
-            string nameStart = manager.StartGame();
+            textBoxMassage.Text = $" {manager.StartGame()} is start the game!";
             SetCubes();
             setPanelsAndCubesEnabled(false);
-            textBoxMassage.Text = $" {nameStart} is start the game!";
             isWinner = false;
             ComputerPlay();
             buttonPlay.Enabled = true;
@@ -175,6 +174,7 @@ namespace Backgammon
         private void buttonPlay_Click(object sender, EventArgs e)
         {
             manager.GameCubes.RollCube();
+            textBoxMassage.Text = $"{manager.CurrentPlayer.Name} turn, the cubes is {manager.GameCubes.FirstCube},{manager.GameCubes.SecondCube}";
             SetCubes();
             buttonPlay.Enabled = false;
             setPanelsAndCubesEnabled(true);
@@ -184,6 +184,8 @@ namespace Backgammon
             }
             if(manager.GameCubes.IsDoubled && pictureBoxCube1.Visible == false)
             {
+                pictureBoxCube1.Visible = true;
+                MessageBox.Show($"There is no available moves for {manager.CurrentPlayer.Name} The cubes was {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}");
                 textBoxMassage.Text =  $"There is no available moves for {manager.CurrentPlayer.Name}";
                 SwitchTurn();
                 return;
@@ -194,6 +196,9 @@ namespace Backgammon
             }
             if((pictureBoxCube2.Visible == false) && (pictureBoxCube1.Visible == false))
             {
+                pictureBoxCube1.Visible = true;
+                pictureBoxCube2.Visible = true;
+                MessageBox.Show($"There is no available moves for {manager.CurrentPlayer.Name} The cubes was {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}");
                 textBoxMassage.Text = $"There is no available moves for {manager.CurrentPlayer.Name} The cubes was {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}";
                 SwitchTurn();
             }
@@ -278,7 +283,14 @@ namespace Backgammon
             {
                 PictureBox cube = (PictureBox)sender;
                 int cubeSum = GetCubeSum(cube);
-                panels[panelIndex].BackColor = Color.Transparent;
+                if (panelIndex != -1)
+                {
+                    panels[panelIndex].BackColor = Color.Transparent;
+                }
+                else
+                {
+                    panelBar.BackColor = Color.Transparent;
+                }
                 if (manager.CurrentPlayer.DoMove(panelIndex, cubeSum))
                 {
                     PaintBoard();
@@ -294,7 +306,7 @@ namespace Backgammon
                         {
                             UpdateSumLabels();
                             SwitchTurn();
-                            manager.CurrentPlayer.Status =  manager.CurrentPlayer.Rull.CheckStatus();
+                            UpdateNewPlayerStatus();
                             textBoxMassage.Text = $"{manager.CurrentPlayer.Name} turn";
                             ComputerPlay();
                         } 
@@ -316,6 +328,37 @@ namespace Backgammon
             {
                 textBoxMassage.Text = "Please choose legal checker and later choose cube";
             }
+        }
+
+        private void UpdateNewPlayerStatus()
+        {
+            if(manager.CurrentPlayer.PlayerColor == Color.Red)
+            {
+                if(board.Out.IsNewRed)
+                {
+                    manager.CurrentPlayer.Status = Player.GameStatus.Out;
+                    manager.CurrentPlayer.UpdateSum(board.Out.UpdateRed);
+                    board.Out.ResetNewBool(Color.Red);
+                }
+                else
+                {
+                    manager.CurrentPlayer.Status = manager.CurrentPlayer.Rull.CheckStatus();
+                }
+            }
+            else
+            {
+                if (board.Out.IsNewBlue)
+                {
+                    manager.CurrentPlayer.Status = Player.GameStatus.Out;
+                    manager.CurrentPlayer.UpdateSum(board.Out.UpdateBlue);
+                    board.Out.ResetNewBool(Color.Blue);
+                }
+                else
+                {
+                    manager.CurrentPlayer.Status = manager.CurrentPlayer.Rull.CheckStatus();
+                }
+            }
+            UpdateSumLabels();
         }
 
         private void UpdateSumLabels()
@@ -347,7 +390,7 @@ namespace Backgammon
 
         private bool IsNoMoreMoves()
         {
-            bool isMoreTurns = false;
+            bool isNoMoreTurns = false;
             if (pictureBoxCube1.Visible == true)
             {
                 if (!manager.CurrentPlayer.IsValidMoves(manager.GameCubes.FirstCube))
@@ -365,9 +408,9 @@ namespace Backgammon
             if ((pictureBoxCube1.Visible == false) && (pictureBoxCube2.Visible == false)
                 && (pictureBoxCube3.Visible == false) && (pictureBoxCube4.Visible == false))
             {
-                isMoreTurns = true;
+                isNoMoreTurns = true;
             }
-            return isMoreTurns;
+            return isNoMoreTurns;
         }
 
         private void setPanelsAndCubesEnabled(bool isEnable)

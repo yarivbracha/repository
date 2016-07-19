@@ -74,12 +74,19 @@ namespace LogicBackgammon
         internal override bool IsFinishStatus()
         {
             bool isFinish = true;
-            for (int i = 6; i < 24; i++)
+            if (board.Out.BlueSum > 0)
             {
-                if (board.Board[i].CheckersColor == Color.Blue)
+                isFinish = false;
+            }
+            else
+            {
+                for (int i = 6; i < 24; i++)
                 {
-                    isFinish = false;
-                    break;
+                    if (board.Board[i].CheckersColor == Color.Blue)
+                    {
+                        isFinish = false;
+                        break;
+                    }
                 }
             }
             return isFinish;
@@ -87,6 +94,7 @@ namespace LogicBackgammon
 
         internal override bool IsOutStatus()
         {
+            board = BackgammonBoard.Instance;
             bool isOut = false;
             if (board.Out.BlueSum > 0)
             {

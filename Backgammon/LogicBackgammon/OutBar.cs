@@ -54,10 +54,12 @@ namespace LogicBackgammon
             if(color == Color.Red)
             {
                 isNewRedInbBar = false;
+                newUpdateRed = 0;
             }
             else
             {
                 isNewBlueInBar = false;
+                newUpdateblue = 0;
             }
         }
 
@@ -65,13 +67,13 @@ namespace LogicBackgammon
         {
             if (color == Color.Blue)
             {
-                newUpdateblue = -1 * place;
+                newUpdateblue += -1 * place;
                 isNewBlueInBar = true;
                 this.blueSum++;
             }
             else
             {
-                newUpdateRed = -1 * place;
+                newUpdateRed += -1 * place;
                 isNewRedInbBar = true;
                 this.redSum++;
             }

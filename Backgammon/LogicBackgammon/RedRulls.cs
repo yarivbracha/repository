@@ -10,6 +10,7 @@ namespace LogicBackgammon
     public class RedRulls : Rulls
     {
         private BackgammonBoard board;
+
         internal override bool IsValidMoveForStart(int cube)
         {
             board = BackgammonBoard.Instance;
@@ -73,12 +74,19 @@ namespace LogicBackgammon
         internal override bool IsFinishStatus()
         {
             bool isFinish = true;
-            for(int i = 0; i < 18; i++)
+            if (board.Out.RedSum > 0)
             {
-                if(board.Board[i].CheckersColor == Color.Red)
+                isFinish = false;
+            }
+            else
+            {
+                for (int i = 0; i < 18; i++)
                 {
-                    isFinish = false;
-                    break;
+                    if (board.Board[i].CheckersColor == Color.Red)
+                    {
+                        isFinish = false;
+                        break;
+                    }
                 }
             }
             return isFinish;
@@ -86,6 +94,7 @@ namespace LogicBackgammon
 
         internal override bool IsOutStatus()
         {
+            board = BackgammonBoard.Instance;
             bool isOut = false;
             if(board.Out.RedSum > 0)
             {

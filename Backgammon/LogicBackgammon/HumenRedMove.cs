@@ -97,21 +97,22 @@ namespace LogicBackgammon
             bool isMoved;
             if (from == -1)
             {
-                if((board.Board[steps].CheckersColor == Color.Red) || (board.Board[steps].CheckersColor == Color.Transparent))
+                if((board.Board[steps - 1].CheckersColor == Color.Red) || (board.Board[steps - 1].CheckersColor == Color.Transparent))
                 {
                     isMoved = true;
                     board.Out.Reduce(Color.Red);
                     sum = steps;
-                    board.Board[steps].CheckersColor = Color.Red;
-                    board.Board[steps].AddChecker();
+                    board.Board[steps - 1].CheckersColor = Color.Red;
+                    board.Board[steps - 1].AddChecker();
                 }
-                else if(board.Board[steps].Checkers == 1)
+                else if(board.Board[steps - 1].Checkers == 1)
                 {
                     isMoved = true;
                     board.Out.Reduce(Color.Red);
-                    board.Board[steps].CheckersColor = Color.Red;
-                    board.Board[steps].AddChecker();
-                    board.Out.Add(Color.Blue, 24 - steps);
+                    board.Board[steps - 1].RemoveChecker();
+                    board.Board[steps - 1].CheckersColor = Color.Red;
+                    board.Board[steps - 1].AddChecker();
+                    board.Out.Add(Color.Blue, 25 - steps);
                     sum = steps;
                 }
                 else
