@@ -23,9 +23,11 @@ namespace LogicBackgammon
             throw new NotImplementedException();
         }
 
-        public bool StartMove(int from, int steps, out int sum)
+        public bool StartMove(int firstCube, int secondCube, out int sum)
         {
-            throw new NotImplementedException();
+            bool isMoved = false;
+            sum = 0;
+            return isMoved;
         }
     }
 }
