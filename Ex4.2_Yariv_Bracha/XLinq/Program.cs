@@ -24,6 +24,7 @@ namespace XLinq
                                                             from parameter in method.GetParameters()
                                                             select new XElement("Parameter", new XAttribute("Name", parameter.Name), new XAttribute("Type", parameter.ParameterType))))));
             var xml = new XElement("Types", allTypes);
+            Console.WriteLine(xml);
 
             /////////////////////////3 a////////////////////////////////////////
             var withoutProperties = from type in allTypes
@@ -99,7 +100,7 @@ namespace XLinq
             {
                 foreach (var type in group)
                 {
-                    Console.WriteLine($"Name -  {type.Name}\nProperties sum -{type.Properties}\nMethods sum - {type.Methods}");
+                    Console.WriteLine($"Name -  {type.Name}, Properties sum - {type.Properties}, Methods sum - {type.Methods}");
                 }
             }
         }
