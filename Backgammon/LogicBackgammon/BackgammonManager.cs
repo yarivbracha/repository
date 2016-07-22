@@ -80,10 +80,6 @@ namespace LogicBackgammon
             {
                 currentPlayer = secondPlayer;
             }
-            if(typeof(ComputerPlayer) == CurrentPlayer.GetType())
-            {
-                PlayComputerMove();
-            }
             return CurrentPlayer.Name;
         }
 
@@ -132,18 +128,6 @@ namespace LogicBackgammon
         //    }
         //    return isWinner;
         //}
-
-        //public void RemoveFromOutBar(int newCheckerPosition)
-        //{
-        //    currentPlayer.Status = Player.GameStatus.Start;
-        //    CurrentPlayer.UpdateSum(newCheckerPosition);
-        //    //todo update board
-        //}
-
-        public void EndMove()
-        {
-            
-        }
 
         public bool IsWinner()
         {

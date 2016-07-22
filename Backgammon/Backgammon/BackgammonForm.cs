@@ -67,22 +67,23 @@ namespace Backgammon
                 }
                 pictureBoxCube1.Enabled = false;
                 pictureBoxCube2.Enabled = false;
-                if(!manager.PlayComputerMove())
+                if (!manager.PlayComputerMove())
                 {
                     textBoxMassage.Text = $"There is no legal moves for {manager.CurrentPlayer.Name}";
                 }
+                UpdateSumLabels();
                 PaintBoard();
-                //Thread.Sleep(2000);
+                Thread.Sleep(2000);
                 isWinner = manager.IsWinner();
                 if(isWinner)
                 {
                     UpdateSumLabels();
                     PaintBoard();
                     MessageBox.Show($"The game is over!\n The winner is {manager.CurrentPlayer.Name}!");
+                    buttonPlay.Enabled = false;
                 }
                 SwitchTurn();
                 UpdateNewPlayerStatus();
-                UpdateSumLabels();
             }
             PaintBoard();
         }
@@ -166,10 +167,12 @@ namespace Backgammon
                 }
                 panelBar.BackgroundImage = bitmapBoard;
             }
+            Refresh();
         }
 
         private void SetCubes()
         {
+            //if(manager.CurrentPlayer.GetType != typeof(ComputerPlayer))
             if (manager.GameCubes.IsDoubled == true)
             {
                 SetCubePictureBox(pictureBoxCube3, manager.GameCubes.FirstCube);
@@ -323,6 +326,7 @@ namespace Backgammon
                         if (manager.IsWinner())
                         {
                             MessageBox.Show($"The game is over!\nThe winner is {manager.CurrentPlayer.Name}!");
+                            buttonPlay.Enabled = true;
                         }
                         else
                         {
@@ -340,6 +344,7 @@ namespace Backgammon
                         if (manager.IsWinner())
                         {
                             MessageBox.Show($"The game is over!\nThe winner is {manager.CurrentPlayer.Name}!");
+                            buttonPlay.Enabled = true;
                         }
                     }
                 }

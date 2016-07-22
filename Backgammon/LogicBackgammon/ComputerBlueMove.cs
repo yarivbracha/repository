@@ -24,7 +24,7 @@ namespace LogicBackgammon
                 {
                     isMovedFirst = false;
                 }
-                secondSum = OneMoveForFinish(secondSum);
+                secondSum = OneMoveForFinish(secondCube);
                 if (secondSum == 0)
                 {
                     isMovedSecond = false;
@@ -88,7 +88,7 @@ namespace LogicBackgammon
                         {
                             board.Board[i].RemoveChecker();
                             board.Board[i - cube].RemoveChecker();
-                            board.Out.Add(Color.Red, 24 - (i - cube));
+                            board.Out.Add(Color.Red, (i - cube));
                             board.Board[i - cube].CheckersColor = Color.Blue;
                             board.Board[i - cube].AddChecker();
                             sum = cube;
@@ -98,7 +98,7 @@ namespace LogicBackgammon
                     else
                     {
                         board.Board[i].RemoveChecker();
-                        sum = i;
+                        sum = i + 1;
                         break;
                     }
                 }
@@ -239,7 +239,7 @@ namespace LogicBackgammon
                 else if (IsInFinishMode())
                 {
                     secondSum = OneMoveForFinish(secondCube);
-                    sum = firstSum + secondCube;
+                    sum = firstSum + secondSum;
                     return true;
                 }
                 secondSum = OneMoveForStart(secondCube);
