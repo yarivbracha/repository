@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 
@@ -16,7 +17,6 @@ namespace Ex4._1_Yariv_Bracha
                                  name = type.Name,
                                  methodSum = type.GetMethods().Length
                              });
-
             foreach (var inter in interfaces)
             {
                 Console.WriteLine(inter);
@@ -31,7 +31,7 @@ namespace Ex4._1_Yariv_Bracha
                 .Select(process => new
                 {
                     name = process.ProcessName,
-                    ID = process.Id,
+                    Id = process.Id,
                     start = process.StartTime
                 });
 
@@ -48,9 +48,9 @@ namespace Ex4._1_Yariv_Bracha
                              orderby process.Id
                              group new
                              {
-                                 Name = process.ProcessName,
-                                 ID = process.Id,
-                                 Threads = process.Threads.Count
+                                 name = process.ProcessName,
+                                 Id = process.Id,
+                                 threads = process.Threads.Count
                              } 
                              by process.BasePriority
                                   into groupProcess
@@ -70,9 +70,9 @@ namespace Ex4._1_Yariv_Bracha
         {
             try
             {
-                return process.Handle != IntPtr.Zero;
+                return process.StartTime.Equals(process.StartTime);
             }
-            catch
+            catch (Win32Exception)
             {
                 return false;
             }

@@ -38,11 +38,11 @@ namespace LogicBackgammon
         internal override bool IsValidMoveForOut(int cube)
         {
             bool isValid = false;
-            if((board.Board[cube - 1].CheckersColor == Color.Blue) || (board.Board[cube - 1].CheckersColor == Color.Transparent))
+            if((board.Board[24 - cube].CheckersColor == Color.Blue) || (board.Board[24 - cube].CheckersColor == Color.Transparent))
             {
                 isValid = true;
             }
-            else if (board.Board[cube - 1].Checkers == 1)
+            else if (board.Board[24 - cube].Checkers == 1)
             {
                 isValid = true;
             }

@@ -104,20 +104,33 @@ namespace LogicBackgammon
             }
         }
 
-        //public void AddToOutBar(int oldCheckerPosition)
+        //public bool IsWinner(Color color)
         //{
+        //    bool isWinner = true;
         //    BackgammonBoard board = BackgammonBoard.Instance;
-        //    CurrentPlayer.Status = Player.GameStatus.Out;
-        //    if (CurrentPlayer.PlayerColor == Color.Red)
+        //    if(color == Color.Red)
         //    {
-        //        CurrentPlayer.UpdateSum(oldCheckerPosition);
+        //        if(board.Out.RedSum > 0)
+        //        {
+        //            isWinner = false;
+        //        }
+        //        else if(board.Out.BlueSum > 0)
+        //        {
+        //            isWinner = false;
+        //        }
         //    }
         //    else
         //    {
-        //        CurrentPlayer.UpdateSum(24 - oldCheckerPosition);
+        //        for(int i = 0; i < 24; i++)
+        //        {
+        //            if(board.Board[i].CheckersColor == Color.Red)
+        //            {
+        //                isWinner = false;
+        //                break;
+        //            }
+        //        }
         //    }
-        //    board.Out.Add(currentPlayer.PlayerColor);
-        //    board.Board[oldCheckerPosition].RemoveChecker(); 
+        //    return isWinner;
         //}
 
         //public void RemoveFromOutBar(int newCheckerPosition)
@@ -134,7 +147,7 @@ namespace LogicBackgammon
 
         public bool IsWinner()
         {
-            if(CurrentPlayer.Sum < 1)
+            if (CurrentPlayer.Sum < 1)
             {
                 return true;
             }

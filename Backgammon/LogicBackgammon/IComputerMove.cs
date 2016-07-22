@@ -8,6 +8,9 @@ namespace LogicBackgammon
 {
      interface  IComputerMove : IMove
     {
-         bool IsInBiggerTriangle(int triangle);
+        int OneMoveForStart(int cube);
+        int OneMoveForOut(int cube);
+        int OneMoveForFinish(int cube);
+        bool IsInFinishMode();
     }
 }

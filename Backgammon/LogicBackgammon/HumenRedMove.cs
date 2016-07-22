@@ -53,7 +53,7 @@ namespace LogicBackgammon
                     else
                     {
                         isMoved = true;
-                        sum = 24 - (from + 1);
+                        sum = 24 - from;
                         board.Board[from].RemoveChecker();
                     }
                 }

@@ -15,6 +15,7 @@ namespace Backgammon
         BackgammonBoard board;
         Panel[] panels;
         PictureBox[] cubes;
+        bool[] isCubePlayed;
         Panel panelBar;
         int panelIndex;
         bool isPanelClicked;
@@ -29,6 +30,8 @@ namespace Backgammon
             labelSecondPlayer.Text = friendName;
             panels = Controls.OfType<Panel>().Where(panelName => panelName.Name.StartsWith("panel")).
             OrderBy(panelPos => int.Parse(panelPos.Name.Replace("panel", ""))).ToArray();
+            isCubePlayed = new bool[4];
+            InitBoolPlayedArray();
             InitCubesPictures();
             panelIndex = -2;
             isPanelClicked = false;
@@ -39,8 +42,15 @@ namespace Backgammon
             SetCubes();
             setPanelsAndCubesEnabled(false);
             isWinner = false;
-            ComputerPlay();
             buttonPlay.Enabled = true;
+        }
+
+        private void InitBoolPlayedArray()
+        {
+            for(int i =0; i < isCubePlayed.Length;i++)
+            {
+                isCubePlayed[i] = false;
+            }
         }
 
         private void ComputerPlay()
@@ -57,20 +67,24 @@ namespace Backgammon
                 }
                 pictureBoxCube1.Enabled = false;
                 pictureBoxCube2.Enabled = false;
-
-               if(!manager.PlayComputerMove())
+                if(!manager.PlayComputerMove())
                 {
                     textBoxMassage.Text = $"There is no legal moves for {manager.CurrentPlayer.Name}";
                 }
                 PaintBoard();
-                Thread.Sleep(2000);
+                //Thread.Sleep(2000);
                 isWinner = manager.IsWinner();
                 if(isWinner)
                 {
+                    UpdateSumLabels();
+                    PaintBoard();
                     MessageBox.Show($"The game is over!\n The winner is {manager.CurrentPlayer.Name}!");
                 }
                 SwitchTurn();
+                UpdateNewPlayerStatus();
+                UpdateSumLabels();
             }
+            PaintBoard();
         }
 
         private void InitCubesPictures()
@@ -142,7 +156,6 @@ namespace Backgammon
                     graphics.FillEllipse(brush, 5, yPos, 15, 15);
                     yPos += 20;
                 }
-                yPos = 0;
                 for (int i = 0; i < board.Out.RedSum; i++)
                 {
                     SolidBrush brush = new SolidBrush(Color.Red);
@@ -173,34 +186,41 @@ namespace Backgammon
 
         private void buttonPlay_Click(object sender, EventArgs e)
         {
-            manager.GameCubes.RollCube();
-            textBoxMassage.Text = $"{manager.CurrentPlayer.Name} turn, the cubes is {manager.GameCubes.FirstCube},{manager.GameCubes.SecondCube}";
-            SetCubes();
-            buttonPlay.Enabled = false;
-            setPanelsAndCubesEnabled(true);
-            if (!manager.CurrentPlayer.IsValidMoves(manager.GameCubes.FirstCube))
+            if (typeof(ComputerPlayer) == manager.CurrentPlayer.GetType())
             {
-                setEnabledAndVisibilityPictureBox(pictureBoxCube1, false);
+                ComputerPlay();
             }
-            if(manager.GameCubes.IsDoubled && pictureBoxCube1.Visible == false)
+            else
             {
-                pictureBoxCube1.Visible = true;
-                MessageBox.Show($"There is no available moves for {manager.CurrentPlayer.Name} The cubes was {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}");
-                textBoxMassage.Text =  $"There is no available moves for {manager.CurrentPlayer.Name}";
-                SwitchTurn();
-                return;
-            }
-            if (!manager.CurrentPlayer.IsValidMoves(manager.GameCubes.SecondCube))
-            {
-                setEnabledAndVisibilityPictureBox(pictureBoxCube2, false);
-            }
-            if((pictureBoxCube2.Visible == false) && (pictureBoxCube1.Visible == false))
-            {
-                pictureBoxCube1.Visible = true;
-                pictureBoxCube2.Visible = true;
-                MessageBox.Show($"There is no available moves for {manager.CurrentPlayer.Name} The cubes was {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}");
-                textBoxMassage.Text = $"There is no available moves for {manager.CurrentPlayer.Name} The cubes was {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}";
-                SwitchTurn();
+                manager.GameCubes.RollCube();
+                textBoxMassage.Text = $"{manager.CurrentPlayer.Name} turn, the cubes is {manager.GameCubes.FirstCube},{manager.GameCubes.SecondCube}";
+                SetCubes();
+                buttonPlay.Enabled = false;
+                setPanelsAndCubesEnabled(true);
+                if (!manager.CurrentPlayer.IsValidMoves(manager.GameCubes.FirstCube))
+                {
+                    setEnabledAndVisibilityPictureBox(pictureBoxCube1, false);
+                }
+                if (manager.GameCubes.IsDoubled && pictureBoxCube1.Visible == false)
+                {
+                    pictureBoxCube1.Visible = true;
+                    MessageBox.Show($"There is no available moves for {manager.CurrentPlayer.Name} The cubes was {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}");
+                    textBoxMassage.Text = $"There is no available moves for {manager.CurrentPlayer.Name}";
+                    SwitchTurn();
+                    return;
+                }
+                if (!manager.CurrentPlayer.IsValidMoves(manager.GameCubes.SecondCube))
+                {
+                    setEnabledAndVisibilityPictureBox(pictureBoxCube2, false);
+                }
+                if ((pictureBoxCube2.Visible == false) && (pictureBoxCube1.Visible == false))
+                {
+                    pictureBoxCube1.Visible = true;
+                    pictureBoxCube2.Visible = true;
+                    MessageBox.Show($"There is no available moves for {manager.CurrentPlayer.Name} The cubes was {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}");
+                    textBoxMassage.Text = $"There is no available moves for {manager.CurrentPlayer.Name} The cubes was {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}";
+                    SwitchTurn();
+                }
             }
         }
 
@@ -293,6 +313,8 @@ namespace Backgammon
                 }
                 if (manager.CurrentPlayer.DoMove(panelIndex, cubeSum))
                 {
+                    int cubeIndex = int.Parse(cube.Name.Replace("pictureBoxCube", ""));
+                    isCubePlayed[cubeIndex - 1] = true;
                     PaintBoard();
                     isPanelClicked = false;
                     setEnabledAndVisibilityPictureBox(cube, false);
@@ -308,7 +330,9 @@ namespace Backgammon
                             SwitchTurn();
                             UpdateNewPlayerStatus();
                             textBoxMassage.Text = $"{manager.CurrentPlayer.Name} turn";
+                            InitBoolPlayedArray();
                             ComputerPlay();
+                            UpdateNewPlayerStatus();
                         } 
                     }
                     else
@@ -391,18 +415,26 @@ namespace Backgammon
         private bool IsNoMoreMoves()
         {
             bool isNoMoreTurns = false;
-            if (pictureBoxCube1.Visible == true)
+            if (isCubePlayed[0] == false)
             {
                 if (!manager.CurrentPlayer.IsValidMoves(manager.GameCubes.FirstCube))
                 {
                     setEnabledAndVisibilityPictureBox(pictureBoxCube1, false);
                 }
+                else
+                {
+                    setEnabledAndVisibilityPictureBox(pictureBoxCube1, true);
+                }
             }
-            if (pictureBoxCube2.Visible == true)
+            if (isCubePlayed[1] == false)
             {
                 if (!manager.CurrentPlayer.IsValidMoves(manager.GameCubes.SecondCube))
                 {
                     setEnabledAndVisibilityPictureBox(pictureBoxCube2, false);
+                }
+                else
+                {
+                    setEnabledAndVisibilityPictureBox(pictureBoxCube2, true);
                 }
             }
             if ((pictureBoxCube1.Visible == false) && (pictureBoxCube2.Visible == false)

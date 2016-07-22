@@ -19,9 +19,24 @@ namespace Ex4._1_Yariv_Bracha
             Console.WriteLine("\nDisplay all current processes by base priority\n");
             helper.DisplayProcessesByBasePriorityQuery();
             helper.DisplayProcessesSum();
-            
-
-           
+            Man man = new Man();
+            Woman woman = new Woman();
+            man.Adress = "Jerusalem";
+            man.Name = "Yossi";
+            man.Weight = 70;
+            man.CopyTo(woman);
+            Console.WriteLine("man:");
+            Console.WriteLine(man);
+            Console.WriteLine("woman:");
+            Console.WriteLine(woman);
+            man.Adress = "Tel - Aviv";
+            man.Name = "Avi";
+            man.Weight = 80;
+            man.CopyTo(woman);
+            Console.WriteLine("man:");
+            Console.WriteLine(man);
+            Console.WriteLine("woman:");
+            Console.WriteLine(woman);
         }
     }
 }

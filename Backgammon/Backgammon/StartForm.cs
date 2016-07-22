@@ -35,8 +35,7 @@ namespace Backgammon
                 if(radioButton2Computers.Checked == true)
                 {
                     LogicBackgammon.BackgammonManager.GameMode gameMode = LogicBackgammon.BackgammonManager.GameMode.TwoComputers;
-                    BackgammonForm gameForm = new BackgammonForm(gameMode, null, null);
-                    //this.Hide();
+                    BackgammonForm gameForm = new BackgammonForm(gameMode, "First Computer", "Second Computer");
                     gameForm.ShowDialog();
                     this.Close();
                 }
@@ -45,8 +44,7 @@ namespace Backgammon
                     if(radioButtonAgainstFriend.Checked != true)
                     {
                         LogicBackgammon.BackgammonManager.GameMode gameMode = LogicBackgammon.BackgammonManager.GameMode.Computer;
-                        BackgammonForm gameForm = new BackgammonForm(gameMode, textBoxPlayerName.Text, null);
-                        //this.Hide();
+                        BackgammonForm gameForm = new BackgammonForm(gameMode, textBoxPlayerName.Text, "Computer");
                         gameForm.ShowDialog();
                         this.Close();
                     }
@@ -58,7 +56,6 @@ namespace Backgammon
                     {
                         LogicBackgammon.BackgammonManager.GameMode gameMode = LogicBackgammon.BackgammonManager.GameMode.Friend;
                         BackgammonForm gameForm = new BackgammonForm(gameMode, textBoxPlayerName.Text, textBoxFriendName.Text);
-                        //this.Hide();
                         gameForm.ShowDialog();
                         this.Close();
                     }

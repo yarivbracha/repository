@@ -11,15 +11,15 @@ namespace LogicBackgammon
             bool isMoved;
             if ((from <= 5) && (from >= 0))
             {
-                if (from == steps)
+                if (from + 1 == steps)
                 {
                     isMoved = true;
                     sum = steps;
                     board.Board[from].RemoveChecker();
                 }
-                else if (from > steps)
+                else if (from + 1 > steps)
                 {
-                    if ((board.Board[from + steps].CheckersColor == Color.Blue) || (board.Board[from + steps].CheckersColor == Color.Transparent))
+                    if ((board.Board[from - steps].CheckersColor == Color.Blue) || (board.Board[from - steps].CheckersColor == Color.Transparent))
                     {
                         isMoved = true;
                         sum = steps;
