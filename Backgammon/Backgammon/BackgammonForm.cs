@@ -220,7 +220,7 @@ namespace Backgammon
                 if (manager.GameCubes.IsDoubled && pictureBoxCube1.Visible == false)
                 {
                     pictureBoxCube1.Visible = true;
-                    MessageBox.Show($"There is no available moves for {manager.CurrentPlayer.Name} The cubes was {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}");
+                    MessageBox.Show($"There is no available moves for {manager.CurrentPlayer.Name} The cubes shows {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}");
                     textBoxMassage.Text = $"There is no available moves for {manager.CurrentPlayer.Name}";
                     SwitchTurn();
                     return;
@@ -233,8 +233,8 @@ namespace Backgammon
                 {
                     pictureBoxCube1.Visible = true;
                     pictureBoxCube2.Visible = true;
-                    MessageBox.Show($"There is no available moves for {manager.CurrentPlayer.Name} The cubes was {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}");
-                    textBoxMassage.Text = $"There is no available moves for {manager.CurrentPlayer.Name} The cubes was {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}";
+                    MessageBox.Show($"There is no available moves for {manager.CurrentPlayer.Name} The cubes shows {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}");
+                    textBoxMassage.Text = $"There is no available moves for {manager.CurrentPlayer.Name} The cubes shows {manager.GameCubes.FirstCube} {manager.GameCubes.SecondCube}";
                     SwitchTurn();
                 }
             }
@@ -339,7 +339,7 @@ namespace Backgammon
                         if (manager.IsWinner())
                         {
                             MessageBox.Show($"The game is over!\nThe winner is {manager.CurrentPlayer.Name}!");
-                            buttonPlay.Enabled = true;
+                            buttonPlay.Enabled = false;
                         }
                         else
                         {
@@ -357,7 +357,7 @@ namespace Backgammon
                         if (manager.IsWinner())
                         {
                             MessageBox.Show($"The game is over!\nThe winner is {manager.CurrentPlayer.Name}!");
-                            buttonPlay.Enabled = true;
+                            buttonPlay.Enabled = false;
                         }
                     }
                 }
