@@ -24,7 +24,7 @@ namespace LogicBackgammon
                 {
                     isMovedFirst = false;
                 }
-                secondSum = OneMoveForFinish(secondSum);
+                secondSum = OneMoveForFinish(secondCube);
                 if (secondSum == 0)
                 {
                     isMovedSecond = false;

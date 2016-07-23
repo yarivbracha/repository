@@ -88,7 +88,7 @@ namespace LogicBackgammon
                         {
                             board.Board[i].RemoveChecker();
                             board.Board[i - cube].RemoveChecker();
-                            board.Out.Add(Color.Red, (i - cube));
+                            board.Out.Add(Color.Red, 24 - (i - cube));
                             board.Board[i - cube].CheckersColor = Color.Blue;
                             board.Board[i - cube].AddChecker();
                             sum = cube;
@@ -150,7 +150,7 @@ namespace LogicBackgammon
                         else if (board.Board[i - cube].Checkers == 1)
                         {
                             board.Board[i].RemoveChecker();
-                            board.Out.Add(Color.Red, 24 - (i - cube));
+                            board.Out.Add(Color.Red, (i - cube) + 1);
                             board.Board[i - cube].RemoveChecker();
                             board.Board[i - cube].CheckersColor = Color.Blue;
                             board.Board[i - cube].AddChecker();

@@ -21,7 +21,6 @@ namespace LogicBackgammon
         public override bool DoMove(int firstCube, int secondCube)
         {
             int sum;
-            BackgammonBoard board = BackgammonBoard.Instance;
             bool isMoved = false;
             if (this.Status == GameStatus.Start)
             {

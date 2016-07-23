@@ -100,35 +100,6 @@ namespace LogicBackgammon
             }
         }
 
-        //public bool IsWinner(Color color)
-        //{
-        //    bool isWinner = true;
-        //    BackgammonBoard board = BackgammonBoard.Instance;
-        //    if(color == Color.Red)
-        //    {
-        //        if(board.Out.RedSum > 0)
-        //        {
-        //            isWinner = false;
-        //        }
-        //        else if(board.Out.BlueSum > 0)
-        //        {
-        //            isWinner = false;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        for(int i = 0; i < 24; i++)
-        //        {
-        //            if(board.Board[i].CheckersColor == Color.Red)
-        //            {
-        //                isWinner = false;
-        //                break;
-        //            }
-        //        }
-        //    }
-        //    return isWinner;
-        //}
-
         public bool IsWinner()
         {
             if (CurrentPlayer.Sum < 1)

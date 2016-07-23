@@ -69,6 +69,7 @@ namespace Backgammon
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxCube3 = new System.Windows.Forms.PictureBox();
             this.pictureBoxCube4 = new System.Windows.Forms.PictureBox();
+            this.buttonHelp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCube2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCube1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -90,115 +91,115 @@ namespace Backgammon
             // panel0
             // 
             this.panel0.BackColor = System.Drawing.Color.Transparent;
-            this.panel0.Location = new System.Drawing.Point(466, 42);
+            this.panel0.Location = new System.Drawing.Point(466, 29);
             this.panel0.Name = "panel0";
-            this.panel0.Size = new System.Drawing.Size(28, 140);
+            this.panel0.Size = new System.Drawing.Size(28, 153);
             this.panel0.TabIndex = 2;
             this.panel0.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Location = new System.Drawing.Point(431, 42);
+            this.panel1.Location = new System.Drawing.Point(431, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(28, 140);
+            this.panel1.Size = new System.Drawing.Size(28, 153);
             this.panel1.TabIndex = 3;
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Location = new System.Drawing.Point(395, 42);
+            this.panel2.Location = new System.Drawing.Point(395, 28);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(28, 140);
+            this.panel2.Size = new System.Drawing.Size(28, 154);
             this.panel2.TabIndex = 4;
             this.panel2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Click);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Location = new System.Drawing.Point(361, 42);
+            this.panel3.Location = new System.Drawing.Point(361, 29);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(28, 140);
+            this.panel3.Size = new System.Drawing.Size(28, 153);
             this.panel3.TabIndex = 5;
             this.panel3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Click);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.Location = new System.Drawing.Point(324, 42);
+            this.panel4.Location = new System.Drawing.Point(324, 29);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(28, 140);
+            this.panel4.Size = new System.Drawing.Size(28, 153);
             this.panel4.TabIndex = 6;
             this.panel4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Click);
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.Location = new System.Drawing.Point(288, 41);
+            this.panel5.Location = new System.Drawing.Point(288, 29);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(28, 140);
+            this.panel5.Size = new System.Drawing.Size(28, 152);
             this.panel5.TabIndex = 7;
             this.panel5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Click);
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.Location = new System.Drawing.Point(206, 43);
+            this.panel6.Location = new System.Drawing.Point(206, 29);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(28, 140);
+            this.panel6.Size = new System.Drawing.Size(28, 154);
             this.panel6.TabIndex = 8;
             this.panel6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Click);
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Transparent;
-            this.panel7.Location = new System.Drawing.Point(170, 42);
+            this.panel7.Location = new System.Drawing.Point(170, 29);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(28, 140);
+            this.panel7.Size = new System.Drawing.Size(28, 153);
             this.panel7.TabIndex = 9;
             this.panel7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Click);
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Transparent;
-            this.panel8.Location = new System.Drawing.Point(136, 42);
+            this.panel8.Location = new System.Drawing.Point(136, 29);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(28, 140);
+            this.panel8.Size = new System.Drawing.Size(28, 153);
             this.panel8.TabIndex = 10;
             this.panel8.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Click);
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.Transparent;
-            this.panel9.Location = new System.Drawing.Point(102, 42);
+            this.panel9.Location = new System.Drawing.Point(102, 29);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(28, 140);
+            this.panel9.Size = new System.Drawing.Size(28, 153);
             this.panel9.TabIndex = 11;
             this.panel9.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Click);
             // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.Transparent;
-            this.panel10.Location = new System.Drawing.Point(65, 42);
+            this.panel10.Location = new System.Drawing.Point(65, 29);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(28, 140);
+            this.panel10.Size = new System.Drawing.Size(28, 153);
             this.panel10.TabIndex = 12;
             this.panel10.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Click);
             // 
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.Transparent;
-            this.panel11.Location = new System.Drawing.Point(28, 40);
+            this.panel11.Location = new System.Drawing.Point(28, 29);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(28, 140);
+            this.panel11.Size = new System.Drawing.Size(28, 151);
             this.panel11.TabIndex = 13;
             this.panel11.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Click);
             // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.Transparent;
-            this.panel12.Location = new System.Drawing.Point(28, 309);
+            this.panel12.Location = new System.Drawing.Point(28, 264);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(28, 140);
             this.panel12.TabIndex = 14;
@@ -207,7 +208,7 @@ namespace Backgammon
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.Color.Transparent;
-            this.panel13.Location = new System.Drawing.Point(65, 309);
+            this.panel13.Location = new System.Drawing.Point(62, 264);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(28, 140);
             this.panel13.TabIndex = 15;
@@ -216,7 +217,7 @@ namespace Backgammon
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.Transparent;
-            this.panel14.Location = new System.Drawing.Point(99, 309);
+            this.panel14.Location = new System.Drawing.Point(99, 264);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(28, 140);
             this.panel14.TabIndex = 16;
@@ -225,7 +226,7 @@ namespace Backgammon
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.Transparent;
-            this.panel15.Location = new System.Drawing.Point(136, 309);
+            this.panel15.Location = new System.Drawing.Point(138, 264);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(28, 140);
             this.panel15.TabIndex = 17;
@@ -234,7 +235,7 @@ namespace Backgammon
             // panel16
             // 
             this.panel16.BackColor = System.Drawing.Color.Transparent;
-            this.panel16.Location = new System.Drawing.Point(172, 309);
+            this.panel16.Location = new System.Drawing.Point(172, 264);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(28, 140);
             this.panel16.TabIndex = 18;
@@ -243,7 +244,7 @@ namespace Backgammon
             // panel17
             // 
             this.panel17.BackColor = System.Drawing.Color.Transparent;
-            this.panel17.Location = new System.Drawing.Point(206, 309);
+            this.panel17.Location = new System.Drawing.Point(206, 264);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(28, 140);
             this.panel17.TabIndex = 19;
@@ -252,7 +253,7 @@ namespace Backgammon
             // panel18
             // 
             this.panel18.BackColor = System.Drawing.Color.Transparent;
-            this.panel18.Location = new System.Drawing.Point(288, 309);
+            this.panel18.Location = new System.Drawing.Point(288, 264);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(28, 140);
             this.panel18.TabIndex = 20;
@@ -261,7 +262,7 @@ namespace Backgammon
             // panel19
             // 
             this.panel19.BackColor = System.Drawing.Color.Transparent;
-            this.panel19.Location = new System.Drawing.Point(324, 309);
+            this.panel19.Location = new System.Drawing.Point(324, 264);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(28, 140);
             this.panel19.TabIndex = 21;
@@ -270,7 +271,7 @@ namespace Backgammon
             // panel20
             // 
             this.panel20.BackColor = System.Drawing.Color.Transparent;
-            this.panel20.Location = new System.Drawing.Point(358, 309);
+            this.panel20.Location = new System.Drawing.Point(358, 264);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(28, 140);
             this.panel20.TabIndex = 22;
@@ -279,7 +280,7 @@ namespace Backgammon
             // panel21
             // 
             this.panel21.BackColor = System.Drawing.Color.Transparent;
-            this.panel21.Location = new System.Drawing.Point(395, 309);
+            this.panel21.Location = new System.Drawing.Point(395, 264);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(28, 140);
             this.panel21.TabIndex = 23;
@@ -288,7 +289,7 @@ namespace Backgammon
             // panel22
             // 
             this.panel22.BackColor = System.Drawing.Color.Transparent;
-            this.panel22.Location = new System.Drawing.Point(432, 309);
+            this.panel22.Location = new System.Drawing.Point(432, 264);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(28, 140);
             this.panel22.TabIndex = 24;
@@ -297,7 +298,7 @@ namespace Backgammon
             // panel23
             // 
             this.panel23.BackColor = System.Drawing.Color.Transparent;
-            this.panel23.Location = new System.Drawing.Point(466, 309);
+            this.panel23.Location = new System.Drawing.Point(466, 264);
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(28, 140);
             this.panel23.TabIndex = 25;
@@ -315,7 +316,7 @@ namespace Backgammon
             // labelFirstPlayer
             // 
             this.labelFirstPlayer.AutoSize = true;
-            this.labelFirstPlayer.Location = new System.Drawing.Point(549, 40);
+            this.labelFirstPlayer.Location = new System.Drawing.Point(549, 60);
             this.labelFirstPlayer.Name = "labelFirstPlayer";
             this.labelFirstPlayer.Size = new System.Drawing.Size(26, 13);
             this.labelFirstPlayer.TabIndex = 28;
@@ -324,7 +325,7 @@ namespace Backgammon
             // labelBluePlayer
             // 
             this.labelBluePlayer.AutoSize = true;
-            this.labelBluePlayer.Location = new System.Drawing.Point(643, 40);
+            this.labelBluePlayer.Location = new System.Drawing.Point(645, 60);
             this.labelBluePlayer.Name = "labelBluePlayer";
             this.labelBluePlayer.Size = new System.Drawing.Size(25, 13);
             this.labelBluePlayer.TabIndex = 29;
@@ -388,7 +389,7 @@ namespace Backgammon
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Blue;
-            this.pictureBox3.Location = new System.Drawing.Point(527, 72);
+            this.pictureBox3.Location = new System.Drawing.Point(527, 101);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(172, 30);
             this.pictureBox3.TabIndex = 30;
@@ -432,11 +433,23 @@ namespace Backgammon
             this.pictureBoxCube4.TabStop = false;
             this.pictureBoxCube4.Click += new System.EventHandler(this.Cube_Click);
             // 
+            // buttonHelp
+            // 
+            this.buttonHelp.BackColor = System.Drawing.Color.LimeGreen;
+            this.buttonHelp.Location = new System.Drawing.Point(528, 12);
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Size = new System.Drawing.Size(171, 26);
+            this.buttonHelp.TabIndex = 39;
+            this.buttonHelp.Text = "Help";
+            this.buttonHelp.UseVisualStyleBackColor = false;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+            // 
             // BackgammonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 461);
+            this.Controls.Add(this.buttonHelp);
             this.Controls.Add(this.pictureBoxCube4);
             this.Controls.Add(this.pictureBoxCube3);
             this.Controls.Add(this.pictureBoxCube2);
@@ -532,5 +545,6 @@ namespace Backgammon
         private System.Windows.Forms.PictureBox pictureBoxCube2;
         private System.Windows.Forms.PictureBox pictureBoxCube3;
         private System.Windows.Forms.PictureBox pictureBoxCube4;
+        private System.Windows.Forms.Button buttonHelp;
     }
 }

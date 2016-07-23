@@ -43,6 +43,10 @@ namespace Backgammon
             setPanelsAndCubesEnabled(false);
             isWinner = false;
             buttonPlay.Enabled = true;
+            if(gameMode == BackgammonManager.GameMode.TwoComputers)
+            {
+                buttonHelp.Enabled = false;
+            }
         }
 
         private void InitBoolPlayedArray()
@@ -124,13 +128,23 @@ namespace Backgammon
                     {
                         brush = new SolidBrush(Color.Blue);
                     }
-                    int yPos = 0;
+                    int yPosfirst = 0;
+                    int yPosSecond = 120;
                     for (int j = 0; j < board.Board[i].Checkers; j++)
                     {
                         graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                        graphics.DrawEllipse(pen, 5, yPos, 15, 15);
-                        graphics.FillEllipse(brush, 5, yPos, 15, 15);
-                        yPos += 20;
+                        if ((i > -1) && (i < 12))
+                        {
+                            graphics.DrawEllipse(pen, 5, yPosfirst, 15, 15);
+                            graphics.FillEllipse(brush, 5, yPosfirst, 15, 15);
+                            yPosfirst += 20;
+                        }
+                        else
+                        {
+                            graphics.DrawEllipse(pen, 5, yPosSecond, 15, 15);
+                            graphics.FillEllipse(brush, 5, yPosSecond, 15, 15);
+                            yPosSecond -= 20;
+                        }
                     }
                     panels[i].BackgroundImage = bitmapBoard;
                 }
@@ -172,7 +186,6 @@ namespace Backgammon
 
         private void SetCubes()
         {
-            //if(manager.CurrentPlayer.GetType != typeof(ComputerPlayer))
             if (manager.GameCubes.IsDoubled == true)
             {
                 SetCubePictureBox(pictureBoxCube3, manager.GameCubes.FirstCube);
@@ -459,6 +472,11 @@ namespace Backgammon
             panelBar.Enabled = isEnable;
             pictureBoxCube1.Enabled = isEnable;
             pictureBoxCube2.Enabled = isEnable;
+        }
+
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("First click on the checker that you Choosed, and after click on the cube to play!");
         }
     }
 }

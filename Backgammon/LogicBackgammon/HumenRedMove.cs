@@ -6,7 +6,7 @@ namespace LogicBackgammon
     {
         BackgammonBoard board;
 
-        public  bool FinishMove(int from, int steps, out int sum)
+        public bool FinishMove(int from, int steps, out int sum)
         {
             bool isMoved;
             if((from <= 23) && (from >= 18))
