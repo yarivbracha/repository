@@ -22,12 +22,20 @@ namespace PrimesCalculator
         {
             string firstNumberString = textBoxFirstNumber.Text;
             string secondNumberString = textBoxSecondNumber.Text;
-            while (!IsValidNumbers(firstNumberString,secondNumberString))
+            bool isValidNumbers = IsValidNumbers(firstNumberString, secondNumberString);
+            if (!isValidNumbers)
             {
                 MessageBox.Show("Please enter valid numbers in the text boxes!");
             }
-            List<int> numbers = await Task.Run(()=> CalculatePrimes(firstNumberString, secondNumberString));
-            
+            else
+            {
+                listBoxNumbers.Items.Clear();
+                List<int> numbers = await Task.Run(() => CalculatePrimes(firstNumberString, secondNumberString));
+                for (int i = 0; i < numbers.Count; i++)
+                {
+                    listBoxNumbers.Items.Add(numbers[i]);
+                }
+            }
         }
 
         public List<int> CalculatePrimes(string firstNumberString, string secondNumberString)
@@ -41,14 +49,19 @@ namespace PrimesCalculator
             {
                  if (i > 2)
                  {
-                     double limit = Math.Sqrt(i);
-                     for (int j = 2; j < limit; j++)
-                     {
-                         if (i % j == 0)
-                         {
-                            listNumbers.Add(i);
+                    bool isPrime = true;
+                    double limit = Math.Sqrt(i);
+                    for (int j = 2; j <= limit; j++)
+                    {
+                        if (i % j == 0)
+                        {
+                            isPrime = false;
                             break;
-                         }
+                        }
+                    }
+                    if (isPrime)
+                    {
+                        listNumbers.Add(i);
                     }
                 }
             }
