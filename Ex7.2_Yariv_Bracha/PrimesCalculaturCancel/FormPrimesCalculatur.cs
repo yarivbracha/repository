@@ -14,7 +14,7 @@ namespace PrimesCalculaturCancel
     public partial class FormPrimesCalculatur : Form
     {
         private CancellationTokenSource cancellationToken;
-
+        //
         public FormPrimesCalculatur()
         {
             InitializeComponent();
