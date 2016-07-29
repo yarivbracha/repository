@@ -48,14 +48,6 @@ namespace Queues
             return item;
         }
 
-        public int Count
-        {
-            get
-            {
-                return queue.Count;
-            }
-        }
-
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
