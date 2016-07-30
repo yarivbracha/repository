@@ -13,12 +13,10 @@ namespace SyncDemo
         {
             SyncDemoHelper firstApp = new SyncDemoHelper();
             SyncDemoHelper secondApp = new SyncDemoHelper();
-            //Task.Run(() => firstApp.RunSyncDemo());
-            //Task.Run(() => secondApp.RunSyncDemo());
-            Thread t1 = new Thread(() => firstApp.RunSyncDemo());
-            Thread t2 = new Thread(() => secondApp.RunSyncDemo());
-            t1.Start();
-            t2.Start();
+            Thread first = new Thread(() => firstApp.RunSyncDemo());
+            Thread second = new Thread(() => secondApp.RunSyncDemo());
+            first.Start();
+            second.Start();
             Console.Read();
 
             
