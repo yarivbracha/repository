@@ -35,15 +35,22 @@ namespace CustomAwaiter
 
         public async Task RunProcess(string processName)
         {
-            try
+            if (!String.IsNullOrEmpty(processName))
             {
-                Console.WriteLine($"Process {processName} - start...");
-                await Process.Start(processName);
-                Console.WriteLine($"Process {processName} exited.");
+                try
+                {
+                    Console.WriteLine($"Process {processName} - start...");
+                    await Process.Start(processName);
+                    Console.WriteLine($"Process {processName} exited.");
+                }
+                catch (Win32Exception)
+                {
+                    Console.WriteLine($"The process name {processName} is not exist!!");
+                }
             }
-            catch (Win32Exception)
+            else
             {
-                Console.WriteLine($"The process name {processName} is not exist!!");
+                Console.WriteLine("The process name is empty!");
             }
         }
     }
