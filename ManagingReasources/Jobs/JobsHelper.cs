@@ -29,10 +29,7 @@ namespace Jobs
             {
                 name = "Job " + i;
                 JobArray[i - 1] = new Job(name, memorySize);
-                if ((i - 1 != 0) && ((i - 1) % 2 == 0))
-                {
-                    memorySize++;
-                }
+                memorySize += 500000;
             }
         }
     }
