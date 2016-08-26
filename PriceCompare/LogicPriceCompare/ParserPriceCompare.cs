@@ -8,6 +8,6 @@ namespace LogicPriceCompare
 {
     public class ParserPriceCompare
     {
-        n
+        int s;
     }
 }
