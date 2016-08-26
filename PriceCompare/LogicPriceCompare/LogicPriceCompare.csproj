@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A026824E-00FD-439B-9AED-6E85B5988315}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LogicPriceCompare</RootNamespace>
+    <AssemblyName>LogicPriceCompare</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChainStore.cs" />
+    <Compile Include="Store.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="ParserPriceCompare.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ChainStores\קואופ\אפרת - קואופ.xml" />
+    <Content Include="קואופ\אורה - קואופ.xml" />
+    <Content Include="קואופ\ארמון הנציב - קואופ.xml" />
+    <Content Include="קואופ\אשדוד - קואופ.xml" />
+    <Content Include="קואופ\בית הכרם - קואופ.xml" />
+    <Content Include="קואופ\בית שמש - קואופ.xml" />
+    <Content Include="קואופ\בנימין - קואופ.xml" />
+    <Content Include="קואופ\בנימינה - קואופ.xml" />
+    <Content Include="קואופ\גבעת אורנים - קואופ.xml" />
+    <Content Include="קואופ\גבעת זאב - קואופ.xml" />
+    <Content Include="קואופ\גבעת שפירא - קואופ.xml" />
+    <Content Include="קואופ\גבעתיים - קואופ.xml" />
+    <Content Include="קואופ\גדרה - קואופ.xml" />
+    <Content Include="קואופ\הרצליה - קואופ.xml" />
+    <Content Include="קואופ\וולפסון - קואופ.xml" />
+    <Content Include="קואופ\וייצמן - קואופ.xml" />
+    <Content Include="קואופ\חפץ חיים - קואופ.xml" />
+    <Content Include="קואופ\יבנה - קואופ.xml" />
+    <Content Include="קואופ\כפר סבא - קואופ.xml" />
+    <Content Include="קואופ\לב יסמין - קואופ.xml" />
+    <Content Include="קואופ\מעלה אדומים - קואופ.xml" />
+    <Content Include="קואופ\משה שרת קריית ים - קואופ.xml" />
+    <Content Include="קואופ\נהריה - קואופ.xml" />
+    <Content Include="קואופ\נווה יעקב - קואופ.xml" />
+    <Content Include="קואופ\ניצה - קואופ.xml" />
+    <Content Include="קואופ\עפולה - קואופ.xml" />
+    <Content Include="קואופ\פולג - קואופ.xml" />
+    <Content Include="קואופ\פורת - קואופ.xml" />
+    <Content Include="קואופ\פלמח - קואופ.xml" />
+    <Content Include="קואופ\פסגת זאב - קואופ.xml" />
+    <Content Include="קואופ\פסגת זאב מזרח - קואופ.xml" />
+    <Content Include="קואופ\צור הדסה - קואופ.xml" />
+    <Content Include="קואופ\ציפור מודיעין - קואופ.xml" />
+    <Content Include="קואופ\קייזר מודיעין - קואופ.xml" />
+    <Content Include="קואופ\קצרין - קואופ.xml" />
+    <Content Include="קואופ\קריית יובל - קואופ.xml" />
+    <Content Include="קואופ\קריית מנחם - קואופ.xml" />
+    <Content Include="קואופ\ראשון לציון - קואופ.xml" />
+    <Content Include="קואופ\ראשונים - קואופ.xml" />
+    <Content Include="קואופ\רחביה - קואופ.xml" />
+    <Content Include="קואופ\רחובות - קואופ.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
