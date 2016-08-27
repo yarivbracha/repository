@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LogicPriceCompare;
 
 namespace UIPriceCompare
 {
@@ -15,6 +16,12 @@ namespace UIPriceCompare
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ParserPriceCompare comparer = new ParserPriceCompare();
+            List<ChainStore> Chaines =  comparer.Parse();
         }
     }
 }

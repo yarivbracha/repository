@@ -21,7 +21,7 @@ namespace LogicPriceCompare
             {
                 return tempPrice;
             }
-            throw new Exception("The Parse of this item price failed!");
+            throw new ArgumentException("The Parse of this item price failed!");
         }
 
         public string Name { get; private set; }
