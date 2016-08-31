@@ -24,6 +24,8 @@ namespace DataPriceCompare
             throw new ArgumentException("The Parse of this item price failed!");
         }
 
+        public long ID { get; set; }
+
         public string Name { get; set; }
 
         public double Price { get; set; }
@@ -36,8 +38,7 @@ namespace DataPriceCompare
 
         public string UnitOfMeasure { get; set; }
 
-        public string StoreID { get; set; }
+        public long StoreID { get; set; }
 
-        public string ChainStoreID { get; set; }
     }
 }

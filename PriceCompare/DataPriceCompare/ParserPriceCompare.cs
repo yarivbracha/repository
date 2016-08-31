@@ -11,7 +11,7 @@ namespace DataPriceCompare
 {
     public class ParserPriceCompare
     {
-        private const string path = @"C:\Users\yariv\Source\Repos\repository\PriceCompare\LogicPriceCompare\ChainStores";
+        private const string path = @"C:\Users\yariv\Source\Repos\repository\PriceCompare\DataPriceCompare\ChainStores";
 
         public List<ChainStore> Parse()
         {
