@@ -7,20 +7,25 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace LogicPriceCompare
+namespace DataPriceCompare
 {
     public class ParserPriceCompare
     {
         private const string path = @"C:\Users\yariv\Source\Repos\repository\PriceCompare\LogicPriceCompare\ChainStores";
+
         public List<ChainStore> Parse()
         {
             List<ChainStore> chainStores = new List<ChainStore>();
             foreach (string currentDirectory in Directory.GetDirectories(path))
             {
-                ChainStore chainStore = new ChainStore(currentDirectory.Replace(path, ""));
+                string replaceChainStoreName = path + "\\";
+                ChainStore chainStore = new ChainStore(currentDirectory.Replace(replaceChainStoreName, ""));
                 foreach (string currentFile in Directory.GetFiles(currentDirectory))
                 {
-                    Store store = new Store(currentFile.Replace(currentDirectory, ""));
+                    string replaceStoreName = currentFile + @"\";
+                    replaceStoreName.Replace(".xml", "");
+
+                    Store store = new Store(currentFile.Replace(replaceStoreName, ""));
                     XDocument xmlDoc = XDocument.Load(currentFile);
                     var items = xmlDoc.Descendants("item");
                     if (items != null)

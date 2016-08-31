@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicPriceCompare
+namespace DataPriceCompare
 {
     public class Store
     {
@@ -15,8 +15,6 @@ namespace LogicPriceCompare
             Name = name;
             items = new Dictionary<string, Item>();
         }
-
-        public string Name { get; private set; }
 
         public Dictionary<string, Item> Items
         {
@@ -36,5 +34,13 @@ namespace LogicPriceCompare
             }
             return isAddItem;
         }
+
+        public string Name { get; set; }
+
+        public string StoreID { get; set; }
+
+        public string City { get; set; }
+
+        public string ChainStoreID { get; set; }
     }
 }

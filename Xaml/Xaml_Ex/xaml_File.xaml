@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Mult xmlns="clr-namespace:Xaml_Ex">
+    <Plus>
+        <Scalar Num = "10"/>
+        <Scalar Num= "5"/>
+    </Plus>
+    <Scalar Num= "2"/>
+</Mult>

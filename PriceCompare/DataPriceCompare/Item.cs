@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicPriceCompare
+namespace DataPriceCompare
 {
     public class Item
     {
@@ -24,8 +24,20 @@ namespace LogicPriceCompare
             throw new ArgumentException("The Parse of this item price failed!");
         }
 
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
-        public double Price { get; private set; }
+        public double Price { get; set; }
+
+        public string Code { get; set; }
+
+        public string Type { get; set; }
+
+        public double Quantity { get; set; }
+
+        public string UnitOfMeasure { get; set; }
+
+        public string StoreID { get; set; }
+
+        public string ChainStoreID { get; set; }
     }
 }
