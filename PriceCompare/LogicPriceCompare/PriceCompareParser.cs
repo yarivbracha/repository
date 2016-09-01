@@ -4,12 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Linq;
+using DataPriceCompare;
 
-namespace DataPriceCompare
+namespace LogicPriceCompare
 {
-    public class ParserPriceCompare
+    public class PriceCompareParser
     {
         private const string path = @"C:\Users\yariv\Source\Repos\repository\PriceCompare\DataPriceCompare\ChainStores";
 
@@ -41,16 +41,16 @@ namespace DataPriceCompare
                                     Item item = new Item(name, price);
                                     store.AddItem(item);
                                 }
-                                catch(ArgumentException)
+                                catch (ArgumentException)
                                 {
-                                    
+
                                 }
                             }
                         }
                         chainStore.AddStore(store);
                     }
                 }
-                if(chainStore.Stores != null)
+                if (chainStore.Stores != null)
                 {
                     chainStores.Add(chainStore);
                 }
@@ -60,4 +60,3 @@ namespace DataPriceCompare
 
     }
 }
-

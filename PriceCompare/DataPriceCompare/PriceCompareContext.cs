@@ -9,7 +9,7 @@ namespace DataPriceCompare
 {
     public class PriceCompareContext : DbContext
     {
-        protected DbSet<Item> Items { get; set; }
+        public DbSet<Item> Items { get; set; }
         public DbSet<Store> Stores { get; set; }
 
         public PriceCompareContext()
