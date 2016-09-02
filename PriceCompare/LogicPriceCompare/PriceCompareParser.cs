@@ -24,7 +24,6 @@ namespace LogicPriceCompare
                 {
                     string replaceStoreName = currentFile + @"\";
                     replaceStoreName.Replace(".xml", "");
-
                     Store store = new Store(currentFile.Replace(replaceStoreName, ""));
                     XDocument xmlDoc = XDocument.Load(currentFile);
                     var items = xmlDoc.Descendants("item");

@@ -58,8 +58,34 @@
     <Compile Include="Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Store.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-002-201608300010.xml" />
+    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-004-201608300010.xml" />
+    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-005-201608300010.xml" />
+    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-006-201608300010.xml" />
+    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-007-201608300010.xml" />
+    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-008-201608300010.xml" />
+    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-009-201608300010.xml" />
+    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-010-201608300010.xml" />
+    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-017-201608300010.xml" />
+    <Content Include="ChainStores\חצי חינם\Stores7290700100008-201608300100.xml" />
+    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-001-201608300010.xml" />
+    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-004-201608300010.xml" />
+    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-005-201608300010.xml" />
+    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-007-201608300010.xml" />
+    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-008-201608300010.xml" />
+    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-009-201608300010.xml" />
+    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-012-201608300010.xml" />
+    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-013-201608300010.xml" />
+    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-015-201608300010.xml" />
+    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-016-201608300010.xml" />
+    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-017-201608300010.xml" />
+    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-018-201608300010.xml" />
+    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-028-201608300010.xml" />
+    <Content Include="ChainStores\יוחננוף\Stores7290803800003-201608300100.xml" />
+    <Content Include="ChainStores\קואופ\Stores7290633800006-201609021308.xml" />
     <Content Include="ChainStores\קואופ\אורה - קואופ.xml" />
     <Content Include="ChainStores\קואופ\אפרת - קואופ.xml" />
     <Content Include="ChainStores\קואופ\ארמון הנציב - קואופ.xml" />
