@@ -34,7 +34,7 @@ namespace DataPriceCompare
 
         public string Type { get; set; }
 
-        public double Quantity { get; set; }
+        public string Quantity { get; set; }
 
         public string UnitOfMeasure { get; set; }
 

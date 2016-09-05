@@ -13,12 +13,29 @@ namespace LogicPriceCompare
         {
             PriceCompareContext db = new PriceCompareContext();
             db.Items.Add(item);
+            db.SaveChanges();
         }
 
         public void AddStore(Store store)
         {
             PriceCompareContext db = new PriceCompareContext();
             db.Stores.Add(store);
+            db.SaveChanges();
+        }
+
+        public void AddUser(User user)
+        {
+            PriceCompareContext db = new PriceCompareContext();
+            if(String.IsNullOrEmpty(user.Name) || String.IsNullOrEmpty(user.Password))
+            {
+                throw new ArgumentException("Please enter name and password!");
+            }
+            if (db.Users.Where(dbUser => dbUser.Name == user.Name).ToList().Count != 0)
+            {
+                throw new ArgumentException($"There is user with the name {user.Name}!"); 
+            }
+            db.Users.Add(user);
+            db.SaveChanges();
         }
 
         public List<Item> GetAllItems()
@@ -31,6 +48,12 @@ namespace LogicPriceCompare
         {
             PriceCompareContext db = new PriceCompareContext();
             return db.Stores.ToList();
+        }
+
+        public List<User> GetAllUsers()
+        {
+            PriceCompareContext db = new PriceCompareContext();
+            return db.Users.ToList();
         }
 
         public List<Store> GetStoresByChainStoreId(string chainStoresId)

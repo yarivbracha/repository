@@ -13,7 +13,7 @@ namespace DataPriceCompare
         public DbSet<Store> Stores { get; set; }
         public DbSet<User> Users { get; set; }
 
-        public PriceCompareContext()
+        public PriceCompareContext() : base("PrimeCompareDB")
         {
             
         }
@@ -22,7 +22,8 @@ namespace DataPriceCompare
         {
             modelBuilder.Entity<Item>().HasKey(item => new { item.ID });
             modelBuilder.Entity<Store>().HasKey(store => new { store.ID});
-
+            modelBuilder.Entity<User>().HasKey(user => new { user.ID });
+            modelBuilder.Entity<User>().Property(user => user.ID).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<Item>().Property(item => item.ID).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<Store>().Property(store => store.ID).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             base.OnModelCreating(modelBuilder);

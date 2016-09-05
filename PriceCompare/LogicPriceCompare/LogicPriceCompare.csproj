@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PriceCompareDataAccess.cs" />
+    <Compile Include="PriceCompareManager.cs" />
     <Compile Include="PriceCompareParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
