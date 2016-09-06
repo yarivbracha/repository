@@ -10,10 +10,12 @@ namespace DataPriceCompare
     {
         private Dictionary<string, Item> items;
 
+        public Store() { }
+
         public Store(string name)
         {
             Name = name;
-            items = new Dictionary<string, Item>();
+           // items = new Dictionary<string, Item>();
         }
 
         public Dictionary<string, Item> Items
@@ -35,12 +37,12 @@ namespace DataPriceCompare
             return isAddItem;
         }
 
-        public long ID { get; set; }
+        public long Id { get; set; }
 
         public string Name { get; set; }
 
-        public string StoreID { get; set; }
+       // public string StoreId { get; set; }
 
-        public string ChainStoreID { get; set; }
+        public string ChainStoreName { get; set; }
     }
 }

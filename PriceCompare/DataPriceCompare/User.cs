@@ -30,15 +30,15 @@ namespace DataPriceCompare
             sb.Append(@"\");
             sb.Append(Name);
             sb.Append(".txt");
-            FIleName = sb.ToString();
-            File.CreateText(FIleName);
+            FileName = sb.ToString();
+            File.CreateText(FileName);
         }
-        public long ID { get; private set; }
+        public long Id { get; private set; }
 
         public string Name { get; private set; }
 
         public string Password { get; private set; }
 
-        public string FIleName { get; private set; }
+        public string FileName { get; private set; }
     }
 }

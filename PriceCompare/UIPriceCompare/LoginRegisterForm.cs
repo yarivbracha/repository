@@ -74,9 +74,15 @@ namespace UIPriceCompare
 
         private void buttonAnonymous_Click(object sender, EventArgs e)
         {
-            priceCompareForm = new PriceCompareForm(null);
-            priceCompareForm.ShowDialog();
-            this.Close();
+            //priceCompareForm = new PriceCompareForm(null);
+            //priceCompareForm.ShowDialog();
+            //this.Close();
+            PriceCompareParser parser = new PriceCompareParser();
+            parser.Parse();
+            PriceCompareContext db = PriceCompareContext.Instance;
+            var i = db.Items.ToList();
+            var u = db.Users.ToList();
+            var s = db.Stores.ToList();
         }
 
     }

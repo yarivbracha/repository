@@ -13,19 +13,33 @@ namespace DataPriceCompare
         public DbSet<Store> Stores { get; set; }
         public DbSet<User> Users { get; set; }
 
-        public PriceCompareContext() : base("PrimeCompareDB")
+        private static PriceCompareContext instance;
+
+        private PriceCompareContext() : base("PrimeCompareDB")
         {
-            
+            Database.SetInitializer<PriceCompareContext>(null);
+        }
+
+        public static PriceCompareContext Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new PriceCompareContext();
+                }
+                return instance;
+            }
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Item>().HasKey(item => new { item.ID });
-            modelBuilder.Entity<Store>().HasKey(store => new { store.ID});
-            modelBuilder.Entity<User>().HasKey(user => new { user.ID });
-            modelBuilder.Entity<User>().Property(user => user.ID).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<Item>().Property(item => item.ID).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<Store>().Property(store => store.ID).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<Item>().HasKey(item => new { item.Id });
+            modelBuilder.Entity<Store>().HasKey(store => new { store.Id});
+            modelBuilder.Entity<User>().HasKey(user => new { user.Id });
+            modelBuilder.Entity<User>().Property(user => user.Id).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<Item>().Property(item => item.Id).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<Store>().Property(store => store.Id).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             base.OnModelCreating(modelBuilder);
         }
 

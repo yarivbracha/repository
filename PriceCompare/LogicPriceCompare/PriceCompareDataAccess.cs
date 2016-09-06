@@ -11,21 +11,31 @@ namespace LogicPriceCompare
     {
         public void AddItem(Item item)
         {
-            PriceCompareContext db = new PriceCompareContext();
+            PriceCompareContext db = PriceCompareContext.Instance;
             db.Items.Add(item);
+            db.SaveChanges();
+        }
+
+        public void AddItems(List<Item> items)
+        {
+            PriceCompareContext db = PriceCompareContext.Instance;
+            foreach (Item item in items)
+            {
+                db.Items.Add(item);
+            }
             db.SaveChanges();
         }
 
         public void AddStore(Store store)
         {
-            PriceCompareContext db = new PriceCompareContext();
+            PriceCompareContext db = PriceCompareContext.Instance;
             db.Stores.Add(store);
             db.SaveChanges();
         }
 
         public void AddUser(User user)
         {
-            PriceCompareContext db = new PriceCompareContext();
+            PriceCompareContext db = PriceCompareContext.Instance;
             if(String.IsNullOrEmpty(user.Name) || String.IsNullOrEmpty(user.Password))
             {
                 throw new ArgumentException("Please enter name and password!");
@@ -40,32 +50,43 @@ namespace LogicPriceCompare
 
         public List<Item> GetAllItems()
         {
-            PriceCompareContext db = new PriceCompareContext();
+            PriceCompareContext db = PriceCompareContext.Instance;
             return db.Items.ToList();
         }
 
         public List<Store> GetAllStores()
         {
-            PriceCompareContext db = new PriceCompareContext();
+            PriceCompareContext db = PriceCompareContext.Instance;
             return db.Stores.ToList();
         }
 
         public List<User> GetAllUsers()
         {
-            PriceCompareContext db = new PriceCompareContext();
+            PriceCompareContext db = PriceCompareContext.Instance;
             return db.Users.ToList();
         }
 
-        public List<Store> GetStoresByChainStoreId(string chainStoresId)
+        public List<Store> GetStoresByChainStoreId(string chainStoresName)
         {
-            PriceCompareContext db = new PriceCompareContext();
-            return db.Stores.Where(store => store.ChainStoreID.Equals(chainStoresId)).ToList();
+            PriceCompareContext db = PriceCompareContext.Instance;
+            return db.Stores.Where(store => store.ChainStoreName.Equals(chainStoresName)).ToList();
         }
 
         public List<Item> GetItemsByStoreId(long id)
         {
-            PriceCompareContext db = new PriceCompareContext();
-            return db.Items.Where(item => item.StoreID == id).ToList();
+            PriceCompareContext db = PriceCompareContext.Instance;
+            return db.Items.Where(item => item.StoreId == id).ToList();
         }
+
+        //public long GetStoreId(Store store)
+        //{
+        //    PriceCompareContext db = new PriceCompareContext();
+        //    List<Store> stores = db.Stores.Where(currentStore => currentStore.Name.Equals(store.Name) && currentStore.ChainStoreName.Equals(store.ChainStoreName)).ToList();
+        //    if(stores.Count == 1)
+        //    {
+        //        return stores[0].Id;
+        //    }
+        //    return -1;
+        //}
     }
 }

@@ -19,7 +19,7 @@ namespace DataPriceCompare
             Sum = 0;
             foreach(var element in Items)
             {
-                Sum += element.Key.Price * element.Value;
+                Sum += Double.Parse(element.Key.Price)  * element.Value;
             }
         }
 
