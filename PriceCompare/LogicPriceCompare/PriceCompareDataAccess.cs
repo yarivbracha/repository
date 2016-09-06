@@ -29,8 +29,9 @@ namespace LogicPriceCompare
         public void AddStore(Store store)
         {
             PriceCompareContext db = PriceCompareContext.Instance;
+            //db.SaveChanges();
             db.Stores.Add(store);
-            db.SaveChanges();
+       //     db.SaveChanges();
         }
 
         public void AddUser(User user)
@@ -78,15 +79,15 @@ namespace LogicPriceCompare
             return db.Items.Where(item => item.StoreId == id).ToList();
         }
 
-        //public long GetStoreId(Store store)
-        //{
-        //    PriceCompareContext db = new PriceCompareContext();
-        //    List<Store> stores = db.Stores.Where(currentStore => currentStore.Name.Equals(store.Name) && currentStore.ChainStoreName.Equals(store.ChainStoreName)).ToList();
-        //    if(stores.Count == 1)
-        //    {
-        //        return stores[0].Id;
-        //    }
-        //    return -1;
-        //}
+        public long GetStoreId(Store store)
+        {
+            PriceCompareContext db = PriceCompareContext.Instance;
+            List<Store> stores = db.Stores.Where(currentStore => currentStore.Name.Equals(store.Name) && currentStore.ChainStoreName.Equals(store.ChainStoreName)).ToList();
+            if (stores.Count == 1)
+            {
+                return stores[0].Id;
+            }
+            return -1;
+        }
     }
 }

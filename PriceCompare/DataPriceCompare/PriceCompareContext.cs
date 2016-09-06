@@ -34,13 +34,14 @@ namespace DataPriceCompare
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Item>().HasKey(item => new { item.Id });
             modelBuilder.Entity<Store>().HasKey(store => new { store.Id});
             modelBuilder.Entity<User>().HasKey(user => new { user.Id });
             modelBuilder.Entity<User>().Property(user => user.Id).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<Item>().Property(item => item.Id).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<Store>().Property(store => store.Id).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            base.OnModelCreating(modelBuilder);
+            
         }
 
 

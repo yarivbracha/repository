@@ -20,7 +20,7 @@ namespace LogicPriceCompare
                 StoresDocument storesDocument = GetDataStoresFile(currentDirectory);
                 foreach (string currentFile in Directory.GetFiles(currentDirectory))
                 {
-                    if (!currentFile.StartsWith("Stores"))
+                    if (!currentFile.Contains(@"\Stores"))
                     {
                         XDocument xmlDoc = XDocument.Load(currentFile);
                         Store store  = AddStoreToDB(xmlDoc, storesDocument);
@@ -54,7 +54,7 @@ namespace LogicPriceCompare
                 item.Quantity = xmlItem.Element("Quantity").Value.ToString();
                 item.UnitOfMeasure = xmlItem.Element("UnitOfMeasure").Value.ToString();
                 item.StoreId = store.Id;
-               // item.StoreId = dataAccess.GetStoreId(store);
+                item.StoreId = dataAccess.GetStoreId(store);
                 itemsDB.Add(item);
             }
             dataAccess.AddItems(itemsDB);
@@ -65,7 +65,7 @@ namespace LogicPriceCompare
             Store store = null;
             if(storesDocument != null)
             {
-                string storeId = xmlDoc.Element("StoreId").Value.ToString();
+                string storeId = xmlDoc.Element("Root").Element("StoreId").Value.ToString();
                 string name = storesDocument.Stores[storeId];
                 if (name != null)
                 {
@@ -83,10 +83,10 @@ namespace LogicPriceCompare
             StoresDocument storesDocument = null;
             foreach (string currentFile in Directory.GetFiles(directory))
             {
-                if(currentFile.StartsWith("Stores"))
+                if(currentFile.Contains(@"\Stores"))
                 {
                     XDocument xmlDoc = XDocument.Load(currentFile);
-                    string chainStoresName = xmlDoc.Element("ChainName").ToString();
+                    string chainStoresName = xmlDoc.Element("Root").Element("ChainName").Value.ToString();
                     if(chainStoresName != null)
                     {
                         storesDocument = new StoresDocument(chainStoresName);

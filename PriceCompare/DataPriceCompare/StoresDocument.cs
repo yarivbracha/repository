@@ -11,6 +11,7 @@ namespace DataPriceCompare
         public StoresDocument(string chainStoresName)
         {
             ChainStoresName = chainStoresName;
+            Stores = new Dictionary<string, string>();
         }
 
         public string ChainStoresName { get; private set; }

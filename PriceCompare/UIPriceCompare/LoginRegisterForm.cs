@@ -79,10 +79,14 @@ namespace UIPriceCompare
             //this.Close();
             PriceCompareParser parser = new PriceCompareParser();
             parser.Parse();
-            PriceCompareContext db = PriceCompareContext.Instance;
-            var i = db.Items.ToList();
-            var u = db.Users.ToList();
-            var s = db.Stores.ToList();
+            //PriceCompareContext db = PriceCompareContext.Instance;
+            //var i = db.Items.ToList();
+            //var u = db.Users.ToList();
+            //var s = db.Stores.ToList();
+            PriceCompareDataAccess dataAc = new PriceCompareDataAccess();
+            var items = dataAc.GetAllItems().ToList();
+            var stores = dataAc.GetAllStores().ToList();
+            var users = dataAc.GetAllUsers().ToList();
         }
 
     }

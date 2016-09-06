@@ -8,7 +8,7 @@ namespace DataPriceCompare
 {
     public class Store
     {
-        private Dictionary<string, Item> items;
+       // private Dictionary<string, Item> items;
 
         public Store() { }
 
@@ -18,24 +18,24 @@ namespace DataPriceCompare
            // items = new Dictionary<string, Item>();
         }
 
-        public Dictionary<string, Item> Items
-        {
-            get { return items; }
-        }
+        //public Dictionary<string, Item> Items
+        //{
+        //    get { return items; }
+        //}
 
-        public bool AddItem(Item item)
-        {
-            bool isAddItem = false;
-            if (item != null)
-            {
-                if (!items.ContainsKey(item.Name))
-                {
-                    items.Add(item.Name, item);
-                    isAddItem = true;
-                }
-            }
-            return isAddItem;
-        }
+        //public bool AddItem(Item item)
+        //{
+        //    bool isAddItem = false;
+        //    if (item != null)
+        //    {
+        //        if (!items.ContainsKey(item.Name))
+        //        {
+        //            items.Add(item.Name, item);
+        //            isAddItem = true;
+        //        }
+        //    }
+        //    return isAddItem;
+        //}
 
         public long Id { get; set; }
 
