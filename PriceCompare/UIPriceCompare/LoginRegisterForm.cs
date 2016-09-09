@@ -76,14 +76,18 @@ namespace UIPriceCompare
         {
             //priceCompareForm = new PriceCompareForm(null);
             //priceCompareForm.ShowDialog();
-            //this.Close();
             PriceCompareParser parser = new PriceCompareParser();
-            //parser.Parse();
+            parser.Parse();
             PriceCompareDataAccess dataAc = new PriceCompareDataAccess();
-            dataAc.DeleteAll();
             var items = dataAc.GetAllItems().ToList();
             var stores = dataAc.GetAllStores().ToList();
             var users = dataAc.GetAllUsers().ToList();
+            this.Close();
+            //PriceCompareParser parser = new PriceCompareParser();
+            ////parser.Parse();
+            //PriceCompareDataAccess dataAc = new PriceCompareDataAccess();
+            //dataAc.DeleteAll();
+            
         }
 
     }

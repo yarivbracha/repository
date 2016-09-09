@@ -38,5 +38,11 @@ namespace LogicPriceCompare
             }
             return null;
         }
+
+        public List<Store> GetAllStores()
+        {
+            PriceCompareDataAccess dataAccess = new PriceCompareDataAccess();
+            return dataAccess.GetAllStores();
+        }
     }
 }
