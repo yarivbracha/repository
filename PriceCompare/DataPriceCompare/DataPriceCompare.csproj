@@ -63,80 +63,10 @@
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-002-201608300010.xml" />
-    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-004-201608300010.xml" />
-    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-005-201608300010.xml" />
-    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-006-201608300010.xml" />
-    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-007-201608300010.xml" />
-    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-008-201608300010.xml" />
-    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-009-201608300010.xml" />
-    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-010-201608300010.xml" />
-    <Content Include="ChainStores\חצי חינם\PriceFull7290700100008-017-201608300010.xml" />
-    <Content Include="ChainStores\חצי חינם\Stores7290700100008-201608300100.xml" />
-    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-001-201608300010.xml" />
-    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-004-201608300010.xml" />
-    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-005-201608300010.xml" />
-    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-007-201608300010.xml" />
-    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-008-201608300010.xml" />
-    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-009-201608300010.xml" />
-    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-012-201608300010.xml" />
-    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-013-201608300010.xml" />
-    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-015-201608300010.xml" />
-    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-016-201608300010.xml" />
-    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-017-201608300010.xml" />
-    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-018-201608300010.xml" />
-    <Content Include="ChainStores\יוחננוף\PriceFull7290803800003-028-201608300010.xml" />
-    <Content Include="ChainStores\יוחננוף\Stores7290803800003-201608300100.xml" />
-    <Content Include="ChainStores\קואופ\Stores7290633800006-201609021308.xml" />
-    <Content Include="ChainStores\קואופ\אורה - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\אפרת - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\ארמון הנציב - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\אשדוד - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\בית הכרם - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\בית שמש - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\בנימין - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\בנימינה - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\גבעת אורנים - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\גבעת זאב - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\גבעת שפירא - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\גבעתיים - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\גדרה - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\הרצליה - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\וולפסון - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\וייצמן - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\חפץ חיים - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\יבנה - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\כפר סבא - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\לב יסמין - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\מעלה אדומים - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\משה שרת קריית ים - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\נהריה - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\נווה יעקב - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\ניצה - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\עפולה - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\פולג - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\פורת - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\פלמח - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\פסגת זאב - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\פסגת זאב מזרח - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\צור הדסה - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\ציפור מודיעין - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\קייזר מודיעין - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\קצרין - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\קריית יובל - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\קריית מנחם - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\ראשון לציון - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\ראשונים - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\רחביה - קואופ.xml" />
-    <Content Include="ChainStores\קואופ\רחובות - קואופ.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ShoppingCarts\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

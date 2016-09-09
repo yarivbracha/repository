@@ -11,10 +11,11 @@ namespace LogicPriceCompare
 {
     public class PriceCompareParser
     {
-        private const string path = @"C:\Users\yariv\Source\Repos\repository\PriceCompare\DataPriceCompare\ChainStores";
-
+        private const string path = "ChainStores";
+        private List<Item> itemsDB;
         public void Parse()
         {
+            itemsDB = new List<Item>();
             foreach (string currentDirectory in Directory.GetDirectories(path))
             {
                 StoresDocument storesDocument = GetDataStoresFile(currentDirectory);
@@ -23,7 +24,7 @@ namespace LogicPriceCompare
                     if (!currentFile.Contains(@"\Stores"))
                     {
                         XDocument xmlDoc = XDocument.Load(currentFile);
-                        Store store  = AddStoreToDB(xmlDoc, storesDocument);
+                        Store store = AddStoreToDB(xmlDoc, storesDocument);
                         if (store != null)
                         {
                             var items = xmlDoc.Descendants("item").ToList();
@@ -33,17 +34,19 @@ namespace LogicPriceCompare
                             }
                             if (items != null)
                             {
-                                AddItemsToDB(items, store);
+                                ParseAndAddItemsToList(items, store);
                             }
                         }
                     }
                 }
             }
+            PriceCompareDataAccess dataAccess = new PriceCompareDataAccess();
+            dataAccess.AddItems(itemsDB);
         }
 
-        private void AddItemsToDB(List<XElement> items, Store store)
+        private void ParseAndAddItemsToList(List<XElement> items, Store store)
         {
-            List<Item> itemsDB = new List<Item>();
+            
             PriceCompareDataAccess dataAccess = new PriceCompareDataAccess();
             foreach (XElement xmlItem in items)
             {
@@ -57,7 +60,6 @@ namespace LogicPriceCompare
                 item.StoreId = dataAccess.GetStoreId(store);
                 itemsDB.Add(item);
             }
-            dataAccess.AddItems(itemsDB);
         }
 
         private Store AddStoreToDB(XDocument xmlDoc, StoresDocument storesDocument)

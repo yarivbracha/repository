@@ -9,7 +9,7 @@ namespace DataPriceCompare
 {
     public class User
     {
-        private const string path = @"C:\Users\yariv\Source\Repos\repository\PriceCompare\DataPriceCompare\ShoppingCarts";
+        private const string path = "ShoppingCarts";
 
         public User()
         {

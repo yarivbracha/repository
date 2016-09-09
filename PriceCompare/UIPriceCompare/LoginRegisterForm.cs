@@ -78,12 +78,9 @@ namespace UIPriceCompare
             //priceCompareForm.ShowDialog();
             //this.Close();
             PriceCompareParser parser = new PriceCompareParser();
-            parser.Parse();
-            //PriceCompareContext db = PriceCompareContext.Instance;
-            //var i = db.Items.ToList();
-            //var u = db.Users.ToList();
-            //var s = db.Stores.ToList();
+            //parser.Parse();
             PriceCompareDataAccess dataAc = new PriceCompareDataAccess();
+            dataAc.DeleteAll();
             var items = dataAc.GetAllItems().ToList();
             var stores = dataAc.GetAllStores().ToList();
             var users = dataAc.GetAllUsers().ToList();
