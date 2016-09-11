@@ -16,16 +16,13 @@ namespace UIPriceCompare
     {
         private User user;
         private PriceCompareManager manager;
+        private List<Store> stores;
         public PriceCompareForm(User user)
         {
             InitializeComponent();
             this.user = user;
             manager = new PriceCompareManager();
             AddStoresToListView();
-           // ListViewItem l = new ListViewItem("חצי חינם");
-           //// l.SubItems.Add("dd");
-           // l.SubItems.Add("חולון");
-           // listViewStores.Items.Add(l);
         }
 
         private void listViewStores_SelectedIndexChanged(object sender, EventArgs e)
@@ -35,10 +32,12 @@ namespace UIPriceCompare
 
         private void AddStoresToListView()
         {
-            foreach (Store store in manager.GetAllStores())
+            stores = manager.GetAllStores();
+            foreach (Store store in stores)
             {
-                ListViewItem storeItem = new ListViewItem(store.ChainStoreName);
+                ListViewItem storeItem = new ListViewItem(store.Id.ToString());
                 storeItem.SubItems.Add(store.Name);
+                storeItem.SubItems.Add(store.ChainStoreName);
                 listViewStores.Items.Add(storeItem);
             }
         }

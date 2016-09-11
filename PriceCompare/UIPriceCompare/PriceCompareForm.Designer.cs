@@ -29,37 +29,41 @@
         private void InitializeComponent()
         {
             this.listViewStores = new System.Windows.Forms.ListView();
-            this.ChainStoresColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StoreColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ChainStoresColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.IdColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listViewStores
             // 
             this.listViewStores.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.IdColumn,
             this.StoreColumn,
             this.ChainStoresColumn});
             this.listViewStores.FullRowSelect = true;
             this.listViewStores.GridLines = true;
-            this.listViewStores.Location = new System.Drawing.Point(22, 27);
+            this.listViewStores.Location = new System.Drawing.Point(12, 12);
             this.listViewStores.Name = "listViewStores";
-            this.listViewStores.Size = new System.Drawing.Size(525, 239);
+            this.listViewStores.Size = new System.Drawing.Size(327, 239);
             this.listViewStores.TabIndex = 0;
             this.listViewStores.UseCompatibleStateImageBehavior = false;
             this.listViewStores.View = System.Windows.Forms.View.Details;
             this.listViewStores.SelectedIndexChanged += new System.EventHandler(this.listViewStores_SelectedIndexChanged);
             // 
+            // StoreColumn
+            // 
+            this.StoreColumn.Text = "Store";
+            this.StoreColumn.Width = 108;
+            // 
             // ChainStoresColumn
             // 
             this.ChainStoresColumn.DisplayIndex = 0;
             this.ChainStoresColumn.Text = "Chain stores ";
-            this.ChainStoresColumn.Width = 245;
+            this.ChainStoresColumn.Width = 134;
             // 
-            // StoreColumn
+            // IdColumn
             // 
-            this.StoreColumn.DisplayIndex = 1;
-            this.StoreColumn.Text = "Store";
-            this.StoreColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.StoreColumn.Width = 284;
+            this.IdColumn.Text = "Id";
             // 
             // PriceCompareForm
             // 
@@ -78,5 +82,6 @@
         private System.Windows.Forms.ListView listViewStores;
         private System.Windows.Forms.ColumnHeader ChainStoresColumn;
         private System.Windows.Forms.ColumnHeader StoreColumn;
+        private System.Windows.Forms.ColumnHeader IdColumn;
     }
 }
