@@ -77,12 +77,12 @@ namespace UIPriceCompare
             priceCompareForm = new PriceCompareForm(null);
             priceCompareForm.ShowDialog();
             //PriceCompareParser parser = new PriceCompareParser();
-            //parser.Parse();
+            ////parser.Parse();
             //PriceCompareDataAccess dataAc = new PriceCompareDataAccess();
             //var items = dataAc.GetAllItems().ToList();
             //var stores = dataAc.GetAllStores().ToList();
             //var users = dataAc.GetAllUsers().ToList();
-            this.Close();
+            //this.Close();
             //PriceCompareDataAccess dataAc = new PriceCompareDataAccess();
             //dataAc.DeleteAll();
 

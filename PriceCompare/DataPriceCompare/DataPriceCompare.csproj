@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChainStore.cs" />
+    <Compile Include="IDBItem.cs" />
     <Compile Include="PriceCompareContext.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

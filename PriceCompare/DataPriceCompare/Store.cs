@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataPriceCompare
 {
-    public class Store
+    public class Store : IDBItem
     {
        // private Dictionary<string, Item> items;
 

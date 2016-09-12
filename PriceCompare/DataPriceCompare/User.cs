@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataPriceCompare
 {
-    public class User
+    public class User : IDBItem
     {
         private const string path = "ShoppingCarts";
 
@@ -33,9 +33,9 @@ namespace DataPriceCompare
             FileName = sb.ToString();
             File.CreateText(FileName);
         }
-        public long Id { get; private set; }
+        public long Id { get; set; }
 
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         public string Password { get; private set; }
 

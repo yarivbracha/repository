@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace DataPriceCompare
 {
-    class ShoppingCart
+    public class ShoppingCart
     {
-        public ShoppingCart(Dictionary<Item,int> items)
+        public ShoppingCart(long storeId)
         {
-            Items = items;
-            CalculateSum();
+            StoreId = storeId;
+            Items = new Dictionary<Item, int>();
         }
 
-        private void CalculateSum()
+        public void CalculateSum()
         {
             Sum = 0;
             foreach(var element in Items)
@@ -23,8 +23,29 @@ namespace DataPriceCompare
             }
         }
 
-        public Dictionary<Item,int> Items { get; private set; }
+        public void AddItem(Item item, int itemsSum)
+        {
+            if (itemsSum > 0)
+            {
+                if (Items != null)
+                {
+                    if (Items.Keys.Where(it => it.Id == item.Id).ToList().Count == 0)
+                    {
+                        Items.Add(item, itemsSum);
+                    }
+                    else
+                    {
+                        throw new ArgumentException("This item is already in the shoping cart!!");
+                    }
+                }
+            }
+ 
+        }
+
+        public Dictionary<Item, int> Items { get; private set; }
 
         public double Sum { get; private set; }
+
+        public long StoreId { get; set; } 
     }
 }

@@ -44,5 +44,11 @@ namespace LogicPriceCompare
             PriceCompareDataAccess dataAccess = new PriceCompareDataAccess();
             return dataAccess.GetAllStores();
         }
+
+        public List<Item> GetItemsByStoreId(long storeId)
+        {
+            PriceCompareDataAccess dataAccess = new PriceCompareDataAccess();
+            return dataAccess.GetItemsByStoreId(storeId);
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataPriceCompare
 {
-    public class Item
+    public class Item : IDBItem
     {
         public Item() { }
 
@@ -40,6 +40,11 @@ namespace DataPriceCompare
         public string UnitOfMeasure { get; set; }
 
         public long StoreId { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
 
     }
 }
