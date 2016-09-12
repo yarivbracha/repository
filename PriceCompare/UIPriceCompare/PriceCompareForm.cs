@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,7 +80,7 @@ namespace UIPriceCompare
 
         private void UpdateThreeExpensiveItems()
         {
-            listBoxStoreCheapItems.Items.Clear();
+            listBoxStoreExpensiveItems.Items.Clear();
             var cheapest = items.OrderByDescending(item => double.Parse(item.Price));
             listBoxStoreExpensiveItems.Items.Add(cheapest.First());
             listBoxStoreExpensiveItems.Items.Add(cheapest.Skip(1).First());
