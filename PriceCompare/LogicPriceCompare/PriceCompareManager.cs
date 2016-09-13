@@ -50,5 +50,13 @@ namespace LogicPriceCompare
             PriceCompareDataAccess dataAccess = new PriceCompareDataAccess();
             return dataAccess.GetItemsByStoreId(storeId);
         }
+
+        public ShoppingCart CompareShoppingCart(long storeId, ShoppingCart oldShoppingCart)
+        {
+            ShoppingCart newShoppingCart = new ShoppingCart(storeId);
+            List<Item> items = GetItemsByStoreId(storeId);
+
+            return newShoppingCart;
+        }
     }
 }

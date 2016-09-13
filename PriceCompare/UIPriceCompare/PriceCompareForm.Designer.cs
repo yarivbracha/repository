@@ -63,6 +63,7 @@
             this.UOMColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonShowLast = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItems)).BeginInit();
@@ -117,7 +118,7 @@
             // 
             // buttonSaveShopingCart
             // 
-            this.buttonSaveShopingCart.Location = new System.Drawing.Point(907, 342);
+            this.buttonSaveShopingCart.Location = new System.Drawing.Point(907, 397);
             this.buttonSaveShopingCart.Name = "buttonSaveShopingCart";
             this.buttonSaveShopingCart.Size = new System.Drawing.Size(94, 44);
             this.buttonSaveShopingCart.TabIndex = 4;
@@ -282,12 +283,13 @@
             // 
             // buttonCompare
             // 
-            this.buttonCompare.Location = new System.Drawing.Point(907, 405);
+            this.buttonCompare.Location = new System.Drawing.Point(907, 341);
             this.buttonCompare.Name = "buttonCompare";
             this.buttonCompare.Size = new System.Drawing.Size(94, 44);
             this.buttonCompare.TabIndex = 9;
             this.buttonCompare.Text = "Compare";
             this.buttonCompare.UseVisualStyleBackColor = true;
+            this.buttonCompare.Click += new System.EventHandler(this.buttonCompare_Click);
             // 
             // buttonAdd
             // 
@@ -370,11 +372,21 @@
             this.TypeColumn.Name = "TypeColumn";
             this.TypeColumn.ReadOnly = true;
             // 
+            // buttonShowLast
+            // 
+            this.buttonShowLast.Location = new System.Drawing.Point(907, 451);
+            this.buttonShowLast.Name = "buttonShowLast";
+            this.buttonShowLast.Size = new System.Drawing.Size(94, 44);
+            this.buttonShowLast.TabIndex = 12;
+            this.buttonShowLast.Text = "Show last shopping cart";
+            this.buttonShowLast.UseVisualStyleBackColor = true;
+            // 
             // PriceCompareForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 523);
+            this.Controls.Add(this.buttonShowLast);
             this.Controls.Add(this.dataGridViewItems);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonCompare);
@@ -435,5 +447,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UOMColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
+        private System.Windows.Forms.Button buttonShowLast;
     }
 }

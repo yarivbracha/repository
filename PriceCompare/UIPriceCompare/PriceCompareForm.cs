@@ -25,6 +25,11 @@ namespace UIPriceCompare
             this.user = user;
             manager = new PriceCompareManager();
             AddStoresToListView();
+            if(user == null)
+            {
+                buttonSaveShopingCart.Visible = false;
+                buttonShowLast.Visible = false;
+            }
         }
 
         private void listViewStores_SelectedIndexChanged(object sender, EventArgs e)
@@ -150,6 +155,19 @@ namespace UIPriceCompare
         {
             Item item = listBoxStoreExpensiveItems.SelectedItem as Item;
             ShowItemDetails(item);
+        }
+
+        private void buttonCompare_Click(object sender, EventArgs e)
+        {
+            if (shoppingCart.Items.Count > 0)
+            {
+                ComparerForm comparerForm = new ComparerForm(shoppingCart, stores);
+                comparerForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select items and add it to the shopping cart!");
+            }
         }
     }
 }
