@@ -184,7 +184,8 @@ namespace UIPriceCompare
 
         private void buttonShowLast_Click(object sender, EventArgs e)
         {
-
+            UserShoppingCartForm userShoppingCartForm = new UserShoppingCartForm(user);
+            userShoppingCartForm.ShowDialog();
         }
     }
 }

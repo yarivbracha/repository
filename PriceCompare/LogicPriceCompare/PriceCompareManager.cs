@@ -88,15 +88,41 @@ namespace LogicPriceCompare
                 sb.Append(element.Key.Id + ",");
                 sb.Append(element.Key.Name + ",");
                 sb.Append(element.Key.Price + ",");
-                sb.Append(element.Key.Code + ",");
-                sb.Append(element.Key.Type + ",");
                 sb.Append(element.Key.Quantity + ",");
                 sb.Append(element.Key.UnitOfMeasure + ",");
+                sb.Append(element.Key.Code + ",");
+                sb.Append(element.Key.Type + ",");
                 sb.Append(element.Key.StoreId);
                 sb.Append("\n");
             }
             file.Write(sb.ToString());
             file.Close();
+        }
+
+        public ShoppingCart GetUserShoppingCart(User user)
+        {
+            ShoppingCart shoppingCart = new ShoppingCart(-1);
+            string[] lines = File.ReadAllLines(user.FileName);
+            if(lines != null)
+            {
+                foreach(string line in lines)
+                {
+                    string[] itemDetails = line.Split(',');
+                    Item item = new Item();
+                    int amount = int.Parse(itemDetails[0]);
+                    item.Id = long.Parse(itemDetails[1]);
+                    item.Name = itemDetails[2];
+                    item.Price = itemDetails[3];
+                    item.Quantity = itemDetails[4];
+                    item.UnitOfMeasure = itemDetails[5];
+                    item.Code = itemDetails[6];
+                    item.Type = itemDetails[7];
+                    item.StoreId = long.Parse(itemDetails[8]);
+                    shoppingCart.AddItem(item, amount);
+                }
+                return shoppingCart;
+            }
+            return null;
         }
     }
 }
