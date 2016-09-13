@@ -55,7 +55,7 @@ namespace LogicPriceCompare
         {
             ShoppingCart newShoppingCart = new ShoppingCart(storeId);
             List<Item> items = GetItemsByStoreId(storeId);
-            //
+            
             return newShoppingCart;
         }
     }
