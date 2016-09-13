@@ -169,5 +169,22 @@ namespace UIPriceCompare
                 MessageBox.Show("Please select items and add it to the shopping cart!");
             }
         }
+
+        private void buttonSaveShopingCart_Click(object sender, EventArgs e)
+        {
+            if (shoppingCart.Items.Count > 0)
+            {
+                manager.SaveShoppingCartToTheUser(user, shoppingCart);
+            }
+            else
+            {
+                MessageBox.Show("Please add items to the shopping cart!");
+            }
+        }
+
+        private void buttonShowLast_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

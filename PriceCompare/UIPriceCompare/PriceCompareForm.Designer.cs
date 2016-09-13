@@ -112,9 +112,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(700, 280);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Shoping cart:";
+            this.label1.Text = "Shopping cart:";
             // 
             // buttonSaveShopingCart
             // 
@@ -124,6 +124,7 @@
             this.buttonSaveShopingCart.TabIndex = 4;
             this.buttonSaveShopingCart.Text = "Save";
             this.buttonSaveShopingCart.UseVisualStyleBackColor = true;
+            this.buttonSaveShopingCart.Click += new System.EventHandler(this.buttonSaveShopingCart_Click);
             // 
             // label2
             // 
@@ -297,7 +298,7 @@
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(94, 49);
             this.buttonAdd.TabIndex = 10;
-            this.buttonAdd.Text = "Add to shoping cart";
+            this.buttonAdd.Text = "Add to shopping cart";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
@@ -380,6 +381,7 @@
             this.buttonShowLast.TabIndex = 12;
             this.buttonShowLast.Text = "Show last shopping cart";
             this.buttonShowLast.UseVisualStyleBackColor = true;
+            this.buttonShowLast.Click += new System.EventHandler(this.buttonShowLast_Click);
             // 
             // PriceCompareForm
             // 
