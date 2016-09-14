@@ -22,23 +22,10 @@ namespace LogicPriceCompare
         {
             using (PriceCompareContext db = new PriceCompareContext())
             {
-                //db.Database.ExecuteSqlCommand("delete from PriceCompare");
-                //foreach (var entity in db.Items)
-                //{
-                    db.Items.RemoveRange(db.Items);
-                //}
-                //foreach (var entity in db.Users)
-                //{
-                    db.Users.RemoveRange(db.Users);
-                //}
-                //foreach (var entity in db.Stores)
-                //{
-                    db.Stores.RemoveRange(db.Stores);
-                //}
+                db.Items.RemoveRange(db.Items);
+                db.Users.RemoveRange(db.Users);
+                db.Stores.RemoveRange(db.Stores);
                 db.SaveChanges();
-                var i = db.Items.ToList();
-                var s = db.Stores.ToList();
-                var u = db.Users.ToList();
             }
         }
 

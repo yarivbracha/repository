@@ -15,16 +15,6 @@ namespace DataPriceCompare
             Name = name;
         }
 
-        //private double SetPrice(string price)
-        //{
-        //    double tempPrice;
-        //    if(Double.TryParse(price, out tempPrice))
-        //    {
-        //        return tempPrice;
-        //    }
-        //    throw new ArgumentException("The Parse of this item price failed!");
-        //}
-
         public long Id { get; set; }
 
         public string Name { get; set; }

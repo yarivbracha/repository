@@ -33,6 +33,7 @@ namespace DataPriceCompare
             FileName = sb.ToString();
             File.CreateText(FileName);
         }
+
         public long Id { get; set; }
 
         public string Name { get; set; }

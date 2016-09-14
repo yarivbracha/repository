@@ -22,8 +22,6 @@ namespace UIPriceCompare
         {
             InitializeComponent();
             manager = new PriceCompareManager();
-            //PriceCompareParser comparer = new PriceCompareParser();
-            //List<ChainStore> Chaines = comparer.Parse();
         }
 
         private void buttonNotAnunymos_Click(object sender, EventArgs e)
@@ -76,17 +74,14 @@ namespace UIPriceCompare
         {
             priceCompareForm = new PriceCompareForm(null);
             priceCompareForm.ShowDialog();
-            //PriceCompareParser parser = new PriceCompareParser();
-            ////parser.Parse();
-            //PriceCompareDataAccess dataAc = new PriceCompareDataAccess();
-            //var items = dataAc.GetAllItems().ToList();
-            //var stores = dataAc.GetAllStores().ToList();
-            //var users = dataAc.GetAllUsers().ToList();
-            //this.Close();
-            //PriceCompareDataAccess dataAc = new PriceCompareDataAccess();
-            //dataAc.DeleteAll();
-
         }
 
+        private void buttonGetData_Click(object sender, EventArgs e)
+        {
+            PriceCompareDataAccess dataAc = new PriceCompareDataAccess();
+            dataAc.DeleteAll();
+            PriceCompareParser parser = new PriceCompareParser();
+            parser.Parse();
+        }
     }
 }
