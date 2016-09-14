@@ -46,19 +46,29 @@ namespace LogicPriceCompare
 
         private void ParseAndAddItemsToList(List<XElement> items, Store store)
         {
-            
             PriceCompareDataAccess dataAccess = new PriceCompareDataAccess();
             foreach (XElement xmlItem in items)
             {
-                Item item = new Item(xmlItem.Element("ItemName").Value.ToString());
-                item.Price = xmlItem.Element("ItemPrice").Value.ToString();
-                item.Code = xmlItem.Element("ItemCode").Value.ToString();
-                item.Type = xmlItem.Element("ItemType").Value.ToString();
-                item.Quantity = xmlItem.Element("Quantity").Value.ToString();
-                item.UnitOfMeasure = xmlItem.Element("UnitOfMeasure").Value.ToString();
-                item.StoreId = store.Id;
-                item.StoreId = dataAccess.GetStoreId(store);
-                itemsDB.Add(item);
+                try
+                {
+                    Item item = new Item(xmlItem.Element("ItemName").Value.ToString());
+                    item.Price = xmlItem.Element("ItemPrice").Value.ToString();
+                    item.Code = xmlItem.Element("ItemCode").Value.ToString();
+                    item.Type = xmlItem.Element("ItemType").Value.ToString();
+                    item.Quantity = xmlItem.Element("Quantity").Value.ToString();
+                    item.UnitOfMeasure = xmlItem.Element("UnitOfMeasure").Value.ToString();
+                    item.StoreId = store.Id;
+                    item.StoreId = dataAccess.GetStoreId(store);
+                    itemsDB.Add(item);
+                }
+                catch(FormatException)
+                {
+
+                }
+                catch(OverflowException)
+                {
+
+                }  
             }
         }
 
